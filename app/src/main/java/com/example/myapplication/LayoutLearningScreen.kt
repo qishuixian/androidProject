@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.myapplication.day7.AsyncLessonDemo
+import com.example.myapplication.day8.ListStateDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -28,6 +29,7 @@ internal fun LayoutLearningScreen() {
                 "home" -> "Android 学习"
                 "ViewModel" -> "ViewModel Demo"
                 "Day7" -> "Day 7 · 异步加载"
+                "Day8" -> "Day 8 · 列表渲染"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -43,9 +45,11 @@ internal fun LayoutLearningScreen() {
                     onLayoutsClick = { page = "layouts" },
                     onViewModelClick = { page = "ViewModel" },
                     onDay7Click = { page = "Day7" }
+                    , onDay8Click = { page = "Day8" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
+                page == "Day8" -> item { ListStateDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -57,12 +61,14 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     onLayoutsClick: () -> Unit,
     onViewModelClick: () -> Unit,
     onDay7Click: () -> Unit
+    , onDay8Click: () -> Unit
 ) {
     item { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
     item { LearningCard("布局", "认识六种 View 布局：排列、相对定位、表格、层叠、坐标与网格。", onLayoutsClick) }
     item { LearningCard("ViewModel Demo", "观察状态如何保存在 ViewModel 中，并驱动 Compose 页面更新。", onViewModelClick) }
     item { LearningCard("Day 7 · 异步加载", "体验加载中、模拟失败、重试和成功状态。", onDay7Click) }
+    item { LearningCard("Day 8 · 列表渲染", "使用 LazyColumn 展示课程，并通过状态提升处理选中项。", onDay8Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
