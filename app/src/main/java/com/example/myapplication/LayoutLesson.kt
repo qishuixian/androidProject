@@ -14,6 +14,18 @@ internal data class LayoutLesson(
 
 internal val layoutLessons = listOf(
     LayoutLesson(
+        "Button", "按钮控件", "用于触发点击操作，例如提交、确认或打开页面。",
+        "类似网页中的 button 元素；Button 负责显示可操作的文字和点击反馈。",
+        "text 设置按钮文字，onClickListener 处理传统 View 点击事件，Compose 中使用 Button 的 onClick 参数。当前详情页使用 AndroidView 加载 XML，并为两个按钮绑定 Toast 点击反馈。",
+        R.layout.demo_button, "demo_button",
+        """<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="开始学习"
+    android:contentDescription="开始学习按钮" />""",
+        "把按钮文字改为“打开 TextView”，并在 Activity 中为它添加点击事件。"
+    ),
+    LayoutLesson(
         "TextView", "文本框详解", "用于显示文字、标题、提示和可点击文本。",
         "类似网页中的文本节点或带样式的 span；TextView 负责显示内容，布局属性负责它在父容器中的位置。",
         "text 设置显示内容，textSize 设置文字大小，textColor 设置颜色，gravity 控制文字在控件内部的对齐方式，padding 设置内边距。需要动态更新文字时，在 Compose 中通常使用 Text；在传统 XML 页面中使用 TextView。",
