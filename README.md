@@ -1,6 +1,90 @@
-# Android 布局学习项目
+# Android 入门学习项目
 
-面向 Android 初学者，尤其是有前端开发经验的学习者。通过中文说明、前端类比、真实 XML 效果和动手练习，了解六种 Android View 布局。
+面向 Android 初学者，尤其是有前端开发经验的学习者。学习范围包括 Java、Kotlin、Android 基础、布局与 Koin 依赖注入。目前已实现六种 Android View 布局的学习页面，其他主题按下面的路线逐步学习和扩展。
+
+## 技术栈与学习方向
+
+| 技术 | 负责什么 | 当前项目状态 |
+| --- | --- | --- |
+| Java | 基础语法、面向对象、阅读传统 Android 项目，与 Kotlin 互操作 | 计划补充学习示例，当前应用源码使用 Kotlin |
+| Kotlin | Android 开发语言；空安全、数据类、扩展函数、Lambda | 已使用 |
+| Android SDK | Activity、生命周期、资源、事件、系统能力 | 已使用 Activity 与资源等基础能力 |
+| XML / View | 传统界面与布局，理解控件尺寸和位置 | 已实现六种布局示例 |
+| Jetpack Compose | 用声明式代码构建界面，状态变化驱动 UI 更新 | 已用于首页、列表和详情页 |
+| Material 3 | 主题、卡片、文字和顶部栏等 UI 组件 | 已使用 |
+| ViewModel / StateFlow | 管理页面状态，让 UI 与业务逻辑分离 | 尚未实现，当前页面使用 Compose 本地状态 |
+| Koin | 管理对象的创建、依赖关系和生命周期 | 尚未接入依赖，作为后续学习主题 |
+| Gradle | 依赖管理、编译、测试和打包 | 已使用 Kotlin DSL 与版本目录 |
+
+Java、Kotlin 是编程语言；Koin 是依赖注入框架；Compose 是 UI 工具包。它们解决的问题不同，可以在 Android 项目中配合使用。
+
+## Android 入门学习路线
+
+### 1. Java 基础
+
+- 学习变量、基本类型、条件、循环、数组和方法。
+- 理解类与对象、构造方法、封装、继承和接口。
+- 学习集合（`List`、`Map`）、泛型、异常处理与 Lambda。
+- 练习：用 Java 定义一个课程类，创建课程列表并按名称筛选。
+
+前端类比：Java 的类和接口可类比 TypeScript 的 `class` 与 `interface`，但 Java 在运行时有自己的类型系统；Java 和 JavaScript 是不同语言。
+
+### 2. Kotlin 基础
+
+- 对照 Java 学习 `val` / `var`、函数、类和接口。
+- 重点掌握可空类型、`?.`、`?:`、`data class` 和 Lambda。
+- 理解 Kotlin 调用 Java 的方式，再学习协程与 Flow。
+- 练习：阅读 `LayoutLessons.kt`，理解 `LayoutLesson` 数据类和 `listOf`；为一个布局修改说明。
+
+### 3. Android 基础与布局
+
+- 认识工程目录、Manifest、Activity、`onCreate()` 和生命周期。
+- 理解 `res` 资源、`R` 引用、`dp` 与 `sp`。
+- 学习 View、ViewGroup、六种布局、点击事件和页面导航。
+- 区分 `gravity`（内容对齐）与 `layout_gravity`（父布局支持时，控制子控件的位置）。
+- 练习：按下方布局章节修改 XML，运行后观察变化；使用 Logcat 查看日志。
+
+### 4. Compose 与页面状态
+
+- 学习 `@Composable`、`Modifier`、`Row`、`Column`、`Box` 和 `LazyColumn`。
+- 理解重组、`remember`、`rememberSaveable` 和状态提升。
+- 练习：追踪首页点击后 `page` 如何变化，以及列表如何切换为详情。
+
+前端类比：可以把 Composable 理解为描述 UI 的组件函数，状态更新后界面重新计算；具体生命周期和执行规则与 React、Vue 并不完全相同。
+
+### 5. ViewModel 与分层
+
+- 将界面显示、页面状态、数据获取分别放在 UI、ViewModel、Repository 中。
+- 先通过构造方法手动传入依赖，理解对象之间的关系。
+- 练习目标：让 Repository 提供课程列表，ViewModel 暴露页面状态，UI 负责显示。当前项目尚未实现这一分层。
+
+### 6. Koin 依赖注入
+
+Koin 用来统一声明和提供对象。例如 ViewModel 需要 Repository 时，可以由容器提供 Repository，而不是在每个页面里重复创建。
+
+前端类比：与 Vue 的 `provide/inject` 都有“声明依赖、按需获取”的思路，但 Koin 还负责依赖对象的创建与作用域管理。
+
+建议依次学习：
+
+1. **构造方法注入**：明确一个类需要哪些依赖。
+2. **`module`**：集中声明对象如何创建。
+3. **`single`**：在容器内复用同一个实例；不要让长生命周期对象持有 Activity。
+4. **`factory`**：每次请求时创建新实例。
+5. **`get()`**：在依赖定义中获取其他已注册对象。
+6. **`startKoin`**：在 Application 中初始化容器，Android 集成可通过 `androidContext` 提供应用上下文。
+7. **ViewModel 集成与作用域**：使用匹配 Koin 版本的 Android / Compose 集成 API，并了解实例何时创建和释放。
+
+后续练习目标：`布局列表 UI → ViewModel → LessonRepository`，由 Koin 提供依赖，并在测试中替换 Repository。
+
+**当前没有添加 Koin 依赖或初始化代码。** 接入时需要选择与项目 Kotlin、Compose 等版本兼容的 Koin 版本，再添加依赖、模块声明和 Application 初始化；仅在 README 中列出框架不会使它生效。
+
+### 学习资料
+
+- [Java 入门资料](https://dev.java/learn/)
+- [Kotlin 官方文档](https://kotlinlang.org/docs/home.html)
+- [Android 开发基础课程](https://developer.android.com/courses)
+- [Compose 官方文档](https://developer.android.com/develop/ui/compose/documentation)
+- [Koin 官方文档](https://insert-koin.io/docs/quickstart/android/)
 
 ## 功能入口
 
