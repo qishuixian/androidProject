@@ -14,6 +14,21 @@ internal data class LayoutLesson(
 
 internal val layoutLessons = listOf(
     LayoutLesson(
+        "TextView", "文本框详解", "用于显示文字、标题、提示和可点击文本。",
+        "类似网页中的文本节点或带样式的 span；TextView 负责显示内容，布局属性负责它在父容器中的位置。",
+        "text 设置显示内容，textSize 设置文字大小，textColor 设置颜色，gravity 控制文字在控件内部的对齐方式，padding 设置内边距。需要动态更新文字时，在 Compose 中通常使用 Text；在传统 XML 页面中使用 TextView。",
+        R.layout.demo_textview, "demo_textview",
+        """<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="欢迎学习 Android"
+    android:textSize="20sp"
+    android:textColor="@android:color/black"
+    android:gravity="center"
+    android:padding="16dp" />""",
+        "把 textSize 改为 28sp、gravity 改为 start，观察文字大小和对齐方式的变化。"
+    ),
+    LayoutLesson(
         "LinearLayout", "线性布局", "沿一个方向，把子控件按顺序排列。",
         "类似 display: flex，通过方向控制横排或竖排。",
         "orientation 决定 horizontal（水平）或 vertical（垂直）。layout_weight 用于按比例分配剩余空间；水平等分时通常把子控件宽度设为 0dp。示例为水平等分三块。",
