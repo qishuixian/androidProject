@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 学习示例：修改属性后重新运行，观察布局变化。 -->
+<FrameLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:padding="12dp"
+  android:background="#F1F5F9">
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="背景层"
+    android:textColor="#172033"
+    android:textSize="16sp"
+    android:padding="8dp"
+    android:background="#BFDBFE"
+    android:gravity="top|start" />
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="56dp"
+    android:text="居中内容"
+    android:textColor="#172033"
+    android:textSize="16sp"
+    android:gravity="center"
+    android:padding="8dp"
+    android:background="#A7F3D0"
+    android:layout_gravity="center" />
+  <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="56dp"
+    android:text="角标"
+    android:textColor="#172033"
+    android:textSize="16sp"
+    android:gravity="center"
+    android:padding="8dp"
+    android:background="#FED7AA"
+    android:layout_gravity="bottom|end" />
+</FrameLayout>

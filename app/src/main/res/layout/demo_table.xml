@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 学习示例：修改属性后重新运行，观察布局变化。 -->
+<TableLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:padding="12dp"
+  android:background="#F1F5F9"
+  android:stretchColumns="*">
+  <TableRow
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="56dp"
+      android:text="姓名"
+      android:textColor="#172033"
+      android:textSize="16sp"
+      android:gravity="center"
+      android:padding="8dp"
+      android:background="#BFDBFE" />
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="56dp"
+      android:text="课程"
+      android:textColor="#172033"
+      android:textSize="16sp"
+      android:gravity="center"
+      android:padding="8dp"
+      android:background="#BFDBFE" />
+  </TableRow>
+  <TableRow
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="56dp"
+      android:text="小明"
+      android:textColor="#172033"
+      android:textSize="16sp"
+      android:gravity="center"
+      android:padding="8dp"
+      android:background="#A7F3D0" />
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="56dp"
+      android:text="Android"
+      android:textColor="#172033"
+      android:textSize="16sp"
+      android:gravity="center"
+      android:padding="8dp"
+      android:background="#A7F3D0" />
+  </TableRow>
+  <TableRow
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="56dp"
+      android:text="小红"
+      android:textColor="#172033"
+      android:textSize="16sp"
+      android:gravity="center"
+      android:padding="8dp"
+      android:background="#FED7AA" />
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="56dp"
+      android:text="布局学习"
+      android:textColor="#172033"
+      android:textSize="16sp"
+      android:gravity="center"
+      android:padding="8dp"
+      android:background="#FED7AA" />
+  </TableRow>
+</TableLayout>

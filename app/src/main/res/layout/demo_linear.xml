@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 学习示例：修改属性后重新运行，观察布局变化。 -->
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:padding="12dp"
+  android:background="#F1F5F9"
+  android:orientation="horizontal">
+  <TextView
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:text="A"
+    android:textColor="#172033"
+    android:textSize="16sp"
+    android:gravity="center"
+    android:padding="8dp"
+    android:background="#BFDBFE"
+    android:layout_weight="1" />
+  <TextView
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:text="B"
+    android:textColor="#172033"
+    android:textSize="16sp"
+    android:gravity="center"
+    android:padding="8dp"
+    android:background="#A7F3D0"
+    android:layout_weight="1" />
+  <TextView
+    android:layout_width="0dp"
+    android:layout_height="56dp"
+    android:text="C"
+    android:textColor="#172033"
+    android:textSize="16sp"
+    android:gravity="center"
+    android:padding="8dp"
+    android:background="#FED7AA"
+    android:layout_weight="1" />
+</LinearLayout>
