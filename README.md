@@ -2,7 +2,7 @@
 
 面向 Android 初学者，尤其是有前端开发经验的学习者。学习范围包括 Java、Kotlin、Android 基础、布局与 Koin 依赖注入。目前已实现六种 Android View 布局的学习页面，其他主题按下面的路线逐步学习和扩展。
 
-完整教程见：[Android Java + Kotlin 混合学习教程](docs/ANDROID_JAVA_KOTLIN_TUTORIAL.md)；当前课程见：[Day 1：Java 基础与 Android 代码阅读](docs/DAY1_JAVA_BASICS.md)。 下一课：[Day 2：Kotlin 基础与 Java 对照](docs/DAY2_KOTLIN_BASICS.md)。 当前课程：[Day 3：Android 页面基础与运行链路](docs/DAY3_ANDROID_PAGE_BASICS.md)。 下一课：[Day 4：Android UI 细节与交互](docs/DAY4_ANDROID_UI_DETAILS.md)。
+完整教程见：[Android Java + Kotlin 混合学习教程](docs/ANDROID_JAVA_KOTLIN_TUTORIAL.md)；当前课程见：[Day 1：Java 基础与 Android 代码阅读](docs/DAY1_JAVA_BASICS.md)。 下一课：[Day 2：Kotlin 基础与 Java 对照](docs/DAY2_KOTLIN_BASICS.md)。 当前课程：[Day 3：Android 页面基础与运行链路](docs/DAY3_ANDROID_PAGE_BASICS.md)。 下一课：[Day 4：Android UI 细节与交互](docs/DAY4_ANDROID_UI_DETAILS.md)。 当前课程：[Day 5：页面状态、返回与 ViewModel](docs/DAY5_STATE_AND_VIEWMODEL.md)。 下一课：[Day 6：依赖注入与 Koin](docs/DAY6_DI_KOIN.md)。 [Day 7：协程、异步加载与重试](docs/DAY7_COROUTINES_AND_LOADING.md)。
 
 ## 技术栈与学习方向
 

@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import com.example.myapplication.day7.AsyncLessonDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -23,7 +24,12 @@ internal fun LayoutLearningScreen() {
     BackHandler(enabled = page != "home", onBack = back)
     Scaffold(topBar = {
         TopAppBar(
-            title = { Text(lesson?.title ?: if (page == "home") "Android 学习" else "布局") },
+            title = { Text(lesson?.title ?: when (page) {
+                "home" -> "Android 学习"
+                "ViewModel" -> "ViewModel Demo"
+                "Day7" -> "Day 7 · 异步加载"
+                else -> "布局"
+            }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
         )
     }) { padding ->
@@ -33,7 +39,13 @@ internal fun LayoutLearningScreen() {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             when {
-                page == "home" -> homeItems { page = "layouts" }
+                page == "home" -> homeItems(
+                    onLayoutsClick = { page = "layouts" },
+                    onViewModelClick = { page = "ViewModel" },
+                    onDay7Click = { page = "Day7" }
+                )
+                page == "ViewModel" -> item { ViewModelDemo() }
+                page == "Day7" -> item { AsyncLessonDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -41,10 +53,16 @@ internal fun LayoutLearningScreen() {
     }
 }
 
-private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(onLayoutsClick: () -> Unit) {
+private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
+    onLayoutsClick: () -> Unit,
+    onViewModelClick: () -> Unit,
+    onDay7Click: () -> Unit
+) {
     item { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
     item { LearningCard("布局", "认识六种 View 布局：排列、相对定位、表格、层叠、坐标与网格。", onLayoutsClick) }
+    item { LearningCard("ViewModel Demo", "观察状态如何保存在 ViewModel 中，并驱动 Compose 页面更新。", onViewModelClick) }
+    item { LearningCard("Day 7 · 异步加载", "体验加载中、模拟失败、重试和成功状态。", onDay7Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
