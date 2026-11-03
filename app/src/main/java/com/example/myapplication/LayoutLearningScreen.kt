@@ -21,6 +21,7 @@ import com.example.myapplication.day11.CourseEventsDemo
 import com.example.myapplication.day12.NullSafetyDemo
 import com.example.myapplication.day13.CollectionTransformDemo
 import com.example.myapplication.day14.UiStateDemo
+import com.example.myapplication.day15.SaveableStateDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,6 +43,7 @@ internal fun LayoutLearningScreen() {
                 "Day12" -> "Day 12 · 空值安全"
                 "Day13" -> "Day 13 · 集合转换"
                 "Day14" -> "Day 14 · sealed 状态"
+                "Day15" -> "Day 15 · 状态恢复"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -57,7 +59,7 @@ internal fun LayoutLearningScreen() {
                     onLayoutsClick = { page = "layouts" },
                     onViewModelClick = { page = "ViewModel" },
                     onDay7Click = { page = "Day7" }
-                    , onDay8Click = { page = "Day8" }, onDay9Click = { page = "Day9" }, onDay10Click = { page = "Day10" }, onDay11Click = { page = "Day11" }, onDay12Click = { page = "Day12" }, onDay13Click = { page = "Day13" }, onDay14Click = { page = "Day14" }
+                    , onDay8Click = { page = "Day8" }, onDay9Click = { page = "Day9" }, onDay10Click = { page = "Day10" }, onDay11Click = { page = "Day11" }, onDay12Click = { page = "Day12" }, onDay13Click = { page = "Day13" }, onDay14Click = { page = "Day14" }, onDay15Click = { page = "Day15" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -68,6 +70,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day12" -> item { NullSafetyDemo() }
                 page == "Day13" -> item { CollectionTransformDemo() }
                 page == "Day14" -> item { UiStateDemo() }
+                page == "Day15" -> item { SaveableStateDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -86,6 +89,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay12Click: () -> Unit
     , onDay13Click: () -> Unit
     , onDay14Click: () -> Unit
+    , onDay15Click: () -> Unit
 ) {
     item { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -99,6 +103,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item { LearningCard("Day 12 · 空值安全", "学习可空类型、安全调用和默认值，避免空指针崩溃。", onDay12Click) }
     item { LearningCard("Day 13 · 集合转换", "使用 filter 和 map 搜索、筛选和转换课程数据。", onDay13Click) }
     item { LearningCard("Day 14 · sealed 状态", "使用密封类型表达 Idle、Loading、Success、Empty 和 Error。", onDay14Click) }
+    item { LearningCard("Day 15 · 状态恢复", "使用 rememberSaveable 保存输入和计数状态。", onDay15Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
