@@ -24,6 +24,7 @@ import com.example.myapplication.day14.UiStateDemo
 import com.example.myapplication.day15.SaveableStateDemo
 import com.example.myapplication.day16.ViewModelStateDemo
 import com.example.myapplication.day17.LifecycleDemo
+import com.example.myapplication.day18.ConfigurationStateDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,6 +49,7 @@ internal fun LayoutLearningScreen() {
                 "Day15" -> "Day 15 · 状态恢复"
                 "Day16" -> "Day 16 · ViewModel 状态"
                 "Day17" -> "Day 17 · 页面生命周期"
+                "Day18" -> "Day 18 · 配置变化"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -72,7 +74,8 @@ internal fun LayoutLearningScreen() {
                     onDay14Click = { page = "Day14" },
                     onDay15Click = { page = "Day15" },
                     onDay16Click = { page = "Day16" },
-                    onDay17Click = { page = "Day17" }
+                    onDay17Click = { page = "Day17" },
+                    onDay18Click = { page = "Day18" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -86,6 +89,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day15" -> item { SaveableStateDemo() }
                 page == "Day16" -> item { ViewModelStateDemo() }
                 page == "Day17" -> item { LifecycleDemo() }
+                page == "Day18" -> item { ConfigurationStateDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -107,6 +111,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay15Click: () -> Unit
     , onDay16Click: () -> Unit
     , onDay17Click: () -> Unit
+    , onDay18Click: () -> Unit
 ) {
     item { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -123,6 +128,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item { LearningCard("Day 15 · 状态恢复", "使用 rememberSaveable 保存输入和计数状态。", onDay15Click) }
     item { LearningCard("Day 16 · ViewModel 状态", "使用 ViewModel 和 StateFlow 保存页面业务状态。", onDay16Click) }
     item { LearningCard("Day 17 · 页面生命周期", "观察 Activity 创建、暂停、恢复与销毁。", onDay17Click) }
+    item { LearningCard("Day 18 · 配置变化", "保存筛选和选中 id，对比旋转后的两种计数。", onDay18Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
