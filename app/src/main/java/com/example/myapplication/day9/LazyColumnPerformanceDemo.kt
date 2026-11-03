@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,20 +17,33 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 internal fun LazyColumnPerformanceDemo() {
-    var courses by remember { mutableStateOf(listOf("TextView", "Button", "LinearLayout")) }
+    var courses by remember {
+        mutableStateOf(
+            listOf(
+                Course("text-view", "TextView", "展示文本内容"),
+                Course("button", "Button", "响应用户点击"),
+                Course("linear-layout", "LinearLayout", "按方向排列子 View")
+            )
+        )
+    }
+    var selectedId by remember { mutableStateOf<String?>(null) }
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        Text("Day 9 · 列表性能", style = MaterialTheme.typography.headlineSmall)
-        Text("每项使用稳定 id 作为 key；重新排序时，Compose 可以保留对应项的状态。")
-        Button(onClick = { courses = courses.reversed() }) { Text("反转列表") }
+        Text("Day 9 · 列表数据建模", style = MaterialTheme.typography.headlineSmall)
+        Text("课程由 Course 对象表示，父组件持有选中状态，子项通过回调上报点击。")
         courses.forEach { course ->
-            CourseItem(key = course, name = course)
+            CourseItem(course, selectedId == course.id) { selectedId = course.id }
         }
+        selectedId?.let { id -> courses.firstOrNull { it.id == id }?.let { Text("当前课程：${it.title}") } }
     }
 }
 
 @Composable
-private fun CourseItem(key: String, name: String) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Text("key=$key  ·  $name", modifier = Modifier.padding(16.dp))
+private fun CourseItem(course: Course, selected: Boolean, onClick: () -> Unit) {
+    Card(onClick = onClick, modifier = Modifier.fillMaxWidth()) {
+        Column(Modifier.padding(16.dp)) {
+            Text(if (selected) "✓ ${course.title}" else course.title)
+            Text(course.description, style = MaterialTheme.typography.bodySmall)
+            Text("id=${course.id}", style = MaterialTheme.typography.labelSmall)
+        }
     }
 }
