@@ -28,6 +28,7 @@ import com.example.myapplication.day18.ConfigurationStateDemo
 import com.example.myapplication.day19.RecompositionDemo
 import com.example.myapplication.day20.CoursePageDemo
 import com.example.myapplication.day21.RepositoryDemo
+import com.example.myapplication.day22.DependencyInjectionDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -56,6 +57,7 @@ internal fun LayoutLearningScreen() {
                 "Day19" -> "Day 19 · Compose 重组"
                 "Day20" -> "Day 20 · 数据与 UI 状态"
                 "Day21" -> "Day 21 · Repository 分层"
+                "Day22" -> "Day 22 · 依赖注入"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -84,7 +86,8 @@ internal fun LayoutLearningScreen() {
                     onDay18Click = { page = "Day18" },
                     onDay19Click = { page = "Day19" },
                     onDay20Click = { page = "Day20" },
-                    onDay21Click = { page = "Day21" }
+                    onDay21Click = { page = "Day21" },
+                    onDay22Click = { page = "Day22" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -102,6 +105,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day19" -> item { RecompositionDemo() }
                 page == "Day20" -> item { CoursePageDemo() }
                 page == "Day21" -> item { RepositoryDemo() }
+                page == "Day22" -> item { DependencyInjectionDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -127,6 +131,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay19Click: () -> Unit
     , onDay20Click: () -> Unit
     , onDay21Click: () -> Unit
+    , onDay22Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -147,6 +152,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day19") { LearningCard("Day 19 · Compose 重组", "通过父子组件日志观察状态读取、重组与跳过。", onDay19Click) }
     item(key = "home-day20") { LearningCard("Day 20 · 数据与 UI 状态", "区分课程完成情况、页面筛选与派生结果。", onDay20Click) }
     item(key = "home-day21") { LearningCard("Day 21 · Repository 分层", "把数据获取从 ViewModel 抽出，理解接口和职责边界。", onDay21Click) }
+    item(key = "home-day22") { LearningCard("Day 22 · 依赖注入", "用依赖容器和 Factory 创建 Repository 与 ViewModel。", onDay22Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
