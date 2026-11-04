@@ -161,6 +161,8 @@ Debug APK 默认位于 `app/build/outputs/apk/debug/app-debug.apk`。若 `adb` �
 
 课程路线：Day1～Day8 的已完成文档见 `docs/`，Day9～Day30 的规划见 [DAY9_TO_DAY30_ROADMAP.md](docs/DAY9_TO_DAY30_ROADMAP.md)。
 
+状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
+
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。
 - [LayoutLessons.kt](app/src/main/java/com/example/myapplication/LayoutLessons.kt)：六种布局的说明、属性、代码片段、练习与资源映射。
 - [res/layout](app/src/main/res/layout)：六种布局的完整 XML 示例。
