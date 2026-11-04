@@ -27,6 +27,7 @@ import com.example.myapplication.day17.LifecycleDemo
 import com.example.myapplication.day18.ConfigurationStateDemo
 import com.example.myapplication.day19.RecompositionDemo
 import com.example.myapplication.day20.CoursePageDemo
+import com.example.myapplication.day21.RepositoryDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -54,6 +55,7 @@ internal fun LayoutLearningScreen() {
                 "Day18" -> "Day 18 · 配置变化"
                 "Day19" -> "Day 19 · Compose 重组"
                 "Day20" -> "Day 20 · 数据与 UI 状态"
+                "Day21" -> "Day 21 · Repository 分层"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -81,7 +83,8 @@ internal fun LayoutLearningScreen() {
                     onDay17Click = { page = "Day17" },
                     onDay18Click = { page = "Day18" },
                     onDay19Click = { page = "Day19" },
-                    onDay20Click = { page = "Day20" }
+                    onDay20Click = { page = "Day20" },
+                    onDay21Click = { page = "Day21" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -98,6 +101,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day18" -> item { ConfigurationStateDemo() }
                 page == "Day19" -> item { RecompositionDemo() }
                 page == "Day20" -> item { CoursePageDemo() }
+                page == "Day21" -> item { RepositoryDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -122,25 +126,27 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay18Click: () -> Unit
     , onDay19Click: () -> Unit
     , onDay20Click: () -> Unit
+    , onDay21Click: () -> Unit
 ) {
-    item { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
-    item { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
-    item { LearningCard("布局", "认识六种 View 布局：排列、相对定位、表格、层叠、坐标与网格。", onLayoutsClick) }
-    item { LearningCard("ViewModel Demo", "观察状态如何保存在 ViewModel 中，并驱动 Compose 页面更新。", onViewModelClick) }
-    item { LearningCard("Day 7 · 异步加载", "体验加载中、模拟失败、重试和成功状态。", onDay7Click) }
-    item { LearningCard("Day 8 · 列表渲染", "使用 LazyColumn 展示课程，并通过状态提升处理选中项。", onDay8Click) }
-    item { LearningCard("Day 9 · 列表性能", "理解稳定 key、列表身份和重新排序。", onDay9Click) }
-    item { LearningCard("Day 10 · 稳定身份", "理解列表位置与课程 id 的区别，练习排序和删除。", onDay10Click) }
-    item { LearningCard("Day 11 · 事件与回调", "学习子项上报点击和删除事件，父组件统一更新状态。", onDay11Click) }
-    item { LearningCard("Day 12 · 空值安全", "学习可空类型、安全调用和默认值，避免空指针崩溃。", onDay12Click) }
-    item { LearningCard("Day 13 · 集合转换", "使用 filter 和 map 搜索、筛选和转换课程数据。", onDay13Click) }
-    item { LearningCard("Day 14 · sealed 状态", "使用密封类型表达 Idle、Loading、Success、Empty 和 Error。", onDay14Click) }
-    item { LearningCard("Day 15 · 状态恢复", "使用 rememberSaveable 保存输入和计数状态。", onDay15Click) }
-    item { LearningCard("Day 16 · ViewModel 状态", "使用 ViewModel 和 StateFlow 保存页面业务状态。", onDay16Click) }
-    item { LearningCard("Day 17 · 页面生命周期", "观察 Activity 创建、暂停、恢复与销毁。", onDay17Click) }
-    item { LearningCard("Day 18 · 配置变化", "保存筛选和选中 id，对比旋转后的两种计数。", onDay18Click) }
-    item { LearningCard("Day 19 · Compose 重组", "通过父子组件日志观察状态读取、重组与跳过。", onDay19Click) }
-    item { LearningCard("Day 20 · 数据与 UI 状态", "区分课程完成情况、页面筛选与派生结果。", onDay20Click) }
+    item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
+    item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
+    item(key = "home-layouts") { LearningCard("布局", "认识六种 View 布局：排列、相对定位、表格、层叠、坐标与网格。", onLayoutsClick) }
+    item(key = "home-view-model") { LearningCard("ViewModel Demo", "观察状态如何保存在 ViewModel 中，并驱动 Compose 页面更新。", onViewModelClick) }
+    item(key = "home-day7") { LearningCard("Day 7 · 异步加载", "体验加载中、模拟失败、重试和成功状态。", onDay7Click) }
+    item(key = "home-day8") { LearningCard("Day 8 · 列表渲染", "使用 LazyColumn 展示课程，并通过状态提升处理选中项。", onDay8Click) }
+    item(key = "home-day9") { LearningCard("Day 9 · 列表性能", "理解稳定 key、列表身份和重新排序。", onDay9Click) }
+    item(key = "home-day10") { LearningCard("Day 10 · 稳定身份", "理解列表位置与课程 id 的区别，练习排序和删除。", onDay10Click) }
+    item(key = "home-day11") { LearningCard("Day 11 · 事件与回调", "学习子项上报点击和删除事件，父组件统一更新状态。", onDay11Click) }
+    item(key = "home-day12") { LearningCard("Day 12 · 空值安全", "学习可空类型、安全调用和默认值，避免空指针崩溃。", onDay12Click) }
+    item(key = "home-day13") { LearningCard("Day 13 · 集合转换", "使用 filter 和 map 搜索、筛选和转换课程数据。", onDay13Click) }
+    item(key = "home-day14") { LearningCard("Day 14 · sealed 状态", "使用密封类型表达 Idle、Loading、Success、Empty 和 Error。", onDay14Click) }
+    item(key = "home-day15") { LearningCard("Day 15 · 状态恢复", "使用 rememberSaveable 保存输入和计数状态。", onDay15Click) }
+    item(key = "home-day16") { LearningCard("Day 16 · ViewModel 状态", "使用 ViewModel 和 StateFlow 保存页面业务状态。", onDay16Click) }
+    item(key = "home-day17") { LearningCard("Day 17 · 页面生命周期", "观察 Activity 创建、暂停、恢复与销毁。", onDay17Click) }
+    item(key = "home-day18") { LearningCard("Day 18 · 配置变化", "保存筛选和选中 id，对比旋转后的两种计数。", onDay18Click) }
+    item(key = "home-day19") { LearningCard("Day 19 · Compose 重组", "通过父子组件日志观察状态读取、重组与跳过。", onDay19Click) }
+    item(key = "home-day20") { LearningCard("Day 20 · 数据与 UI 状态", "区分课程完成情况、页面筛选与派生结果。", onDay20Click) }
+    item(key = "home-day21") { LearningCard("Day 21 · Repository 分层", "把数据获取从 ViewModel 抽出，理解接口和职责边界。", onDay21Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
