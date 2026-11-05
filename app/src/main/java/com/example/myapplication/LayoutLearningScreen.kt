@@ -35,6 +35,7 @@ import com.example.myapplication.day25.RoomDemo
 import com.example.myapplication.day26.OfflineDemo
 import com.example.myapplication.day27.ConcurrentLoadingDemo
 import com.example.myapplication.day28.PagingDemo
+import com.example.myapplication.day29.TestingDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -70,6 +71,7 @@ internal fun LayoutLearningScreen() {
                 "Day26" -> "Day 26 · 离线优先"
                 "Day27" -> "Day 27 · 协程并发"
                 "Day28" -> "Day 28 · 分页列表"
+                "Day29" -> "Day 29 · 测试与调试"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -105,7 +107,8 @@ internal fun LayoutLearningScreen() {
                     onDay25Click = { page = "Day25" },
                     onDay26Click = { page = "Day26" },
                     onDay27Click = { page = "Day27" },
-                    onDay28Click = { page = "Day28" }
+                    onDay28Click = { page = "Day28" },
+                    onDay29Click = { page = "Day29" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -130,6 +133,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day26" -> item { OfflineDemo() }
                 page == "Day27" -> item { ConcurrentLoadingDemo() }
                 page == "Day28" -> item { PagingDemo() }
+                page == "Day29" -> item { TestingDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -162,6 +166,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay26Click: () -> Unit
     , onDay27Click: () -> Unit
     , onDay28Click: () -> Unit
+    , onDay29Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -189,6 +194,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day26") { LearningCard("Day 26 · 离线优先", "先读缓存，网络刷新成功后写回数据库。", onDay26Click) }
     item(key = "home-day27") { LearningCard("Day 27 · 协程并发", "使用 async/await 并行加载独立数据。", onDay27Click) }
     item(key = "home-day28") { LearningCard("Day 28 · 分页列表", "分批加载并追加数据，理解分页状态。", onDay28Click) }
+    item(key = "home-day29") { LearningCard("Day 29 · 测试与调试", "用单元测试验证状态转换，学习 Logcat 调试方法。", onDay29Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
