@@ -159,7 +159,7 @@ Debug APK 默认位于 `app/build/outputs/apk/debug/app-debug.apk`。若 `adb` �
 
 ## 源码阅读路线
 
-课程路线：Day1～Day8 的已完成文档见 `docs/`，Day9～Day30 的规划见 [DAY9_TO_DAY30_ROADMAP.md](docs/DAY9_TO_DAY30_ROADMAP.md)。
+课程路线：Day1～Day8 的已完成文档见 `docs/`，Day9～Day79 的规划见 [DAY9_TO_DAY79_ROADMAP.md](docs/DAY9_TO_DAY79_ROADMAP.md)。
 
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
