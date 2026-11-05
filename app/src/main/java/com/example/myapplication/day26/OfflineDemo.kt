@@ -73,7 +73,7 @@ private object OfflineDependencies {
         val database = Room.databaseBuilder(context.applicationContext, CourseDatabase::class.java, "day26-cache.db").build()
         val api = Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
             .addConverterFactory(GsonConverterFactory.create()).build().create(TodoApi::class.java)
-        OfflineRepository(database.courses(), api).also { repository = it }
+        OfflineRepository(database, api).also { repository = it }
     }
 }
 

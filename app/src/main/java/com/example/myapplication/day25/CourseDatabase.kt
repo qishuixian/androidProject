@@ -26,12 +26,6 @@ internal interface CourseDao {
     @Query("DELETE FROM courses")
     suspend fun clear()
 
-    // Day26 在独立数据库中使用事务整体替换缓存，读者不会看到半份数据。
-    @Transaction
-    suspend fun replaceCache(courses: List<CourseEntity>) {
-        clear()
-        insertInitial(courses)
-    }
 }
 
 @Database(entities = [CourseEntity::class], version = 1, exportSchema = false)
