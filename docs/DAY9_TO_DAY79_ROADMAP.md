@@ -154,6 +154,8 @@
 
 ## 已锁定的学习优先级清单
 
+近期执行计划见 [DAY31_TO_DAY55_LEARNING_PLAN.md](DAY31_TO_DAY55_LEARNING_PLAN.md)。
+
 以下顺序是当前确定的优先级，后续安排课程时优先按此顺序推进：
 
 1. **XML 与 ViewBinding**：掌握传统 Android 页面、ViewBinding 生成和 View 引用关系。
