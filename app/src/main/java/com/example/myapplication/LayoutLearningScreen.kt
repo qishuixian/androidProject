@@ -38,6 +38,7 @@ import com.example.myapplication.day28.PagingDemo
 import com.example.myapplication.day29.TestingDemo
 import com.example.myapplication.day30.FinalCourseDemo
 import com.example.myapplication.day31.XmlViewBindingDemo
+import com.example.myapplication.day32.ActivityFragmentLifecycleDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -76,6 +77,7 @@ internal fun LayoutLearningScreen() {
                 "Day29" -> "Day 29 · 测试与调试"
                 "Day30" -> "Day 30 · 综合项目"
                 "Day31" -> "Day 31 · XML 与 ViewBinding"
+                "Day32" -> "Day 32 · Activity 与 Fragment 生命周期"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -114,7 +116,8 @@ internal fun LayoutLearningScreen() {
                     onDay28Click = { page = "Day28" },
                     onDay29Click = { page = "Day29" },
                     onDay30Click = { page = "Day30" },
-                    onDay31Click = { page = "Day31" }
+                    onDay31Click = { page = "Day31" },
+                    onDay32Click = { page = "Day32" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -142,6 +145,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day29" -> item { TestingDemo() }
                 page == "Day30" -> item { FinalCourseDemo() }
                 page == "Day31" -> item { XmlViewBindingDemo() }
+                page == "Day32" -> item { ActivityFragmentLifecycleDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -177,6 +181,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay29Click: () -> Unit
     , onDay30Click: () -> Unit
     , onDay31Click: () -> Unit
+    , onDay32Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -207,6 +212,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day29") { LearningCard("Day 29 · 测试与调试", "用单元测试验证状态转换，学习 Logcat 调试方法。", onDay29Click) }
     item(key = "home-day30") { LearningCard("Day 30 · 综合项目", "整合分页、状态、ViewModel 和发布前检查。", onDay30Click) }
     item(key = "home-day31") { LearningCard("Day 31 · XML 与 ViewBinding", "学习传统 XML 页面、ViewBinding 和 Context。", onDay31Click) }
+    item(key = "home-day32") { LearningCard("Day 32 · Activity 与 Fragment 生命周期", "观察宿主生命周期，理解 Fragment View 与配置变化。", onDay32Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
