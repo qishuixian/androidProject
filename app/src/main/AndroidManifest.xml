@@ -17,6 +17,8 @@
         <activity android:name=".day34.RecyclerCourseActivity" android:exported="false" />
         <!-- Day41 使用独立窗口承载 WebView，不向其他应用暴露入口。 -->
         <activity android:name=".day41.WebLessonActivity" android:exported="false" />
+        <!-- Day42 新 Activity 同样需要注册，才能由本应用显式启动。 -->
+        <activity android:name=".day42.NativeJavaScriptActivity" android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

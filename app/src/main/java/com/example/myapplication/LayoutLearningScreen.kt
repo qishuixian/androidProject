@@ -53,6 +53,8 @@ import com.example.myapplication.day39.ResourceMergeDemo
 import com.example.myapplication.day40.BuildDiagnosisDemo
 // Day41 使用独立 Activity 演示内嵌网页。
 import com.example.myapplication.day41.WebViewDemo
+// Day42 展示 Native 主动调用网页函数。
+import com.example.myapplication.day42.NativeJavaScriptDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -101,6 +103,7 @@ internal fun LayoutLearningScreen() {
                 "Day39" -> "Day 39 · 资源合并"
                 "Day40" -> "Day 40 · 构建排查"
                 "Day41" -> "Day 41 · WebView 生命周期"
+                "Day42" -> "Day 42 · Native 调 JavaScript"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -150,6 +153,7 @@ internal fun LayoutLearningScreen() {
                     , onDay39Click = { page = "Day39" }
                     , onDay40Click = { page = "Day40" }
                     , onDay41Click = { page = "Day41" }
+                    , onDay42Click = { page = "Day42" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -187,6 +191,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day39" -> item { ResourceMergeDemo() }
                 page == "Day40" -> item { BuildDiagnosisDemo() }
                 page == "Day41" -> item { WebViewDemo() }
+                page == "Day42" -> item { NativeJavaScriptDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -232,6 +237,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay39Click: () -> Unit
     , onDay40Click: () -> Unit
     , onDay41Click: () -> Unit
+    , onDay42Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -279,6 +285,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day40") { LearningCard("Day 40 · 构建排查", "区分 Gradle、JDK、SDK，练习定位编译、安装和运行错误。", onDay40Click) }
     // Day41 开始 WebView 阶段，使用本地 HTML 排除网络不确定性。
     item(key = "home-day41") { LearningCard("Day 41 · WebView 生命周期", "学习 loadUrl、加载回调、网页返回及销毁。", onDay41Click) }
+    // Day42 使用本地网页，集中理解参数编码和异步返回。
+    item(key = "home-day42") { LearningCard("Day 42 · Native 调 JavaScript", "学习 evaluateJavascript、JSON 参数、返回值和线程。", onDay42Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {

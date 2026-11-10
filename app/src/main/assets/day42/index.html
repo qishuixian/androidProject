@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- 本页由 Native 调用 JS，不注册任何 JS 调 Native 桥。 -->
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day42 Native 调 JS</title>
+</head>
+<body>
+    <h1>网页收到的课程</h1>
+    <p id="course">等待上方 Android 按钮发送数据</p>
+    <script>
+        // 计数存于当前网页 JS 内存，重新加载后重置。
+        let count = 0;
+        // 显式挂到 window，方便 Native 按固定协议找到函数。
+        window.receiveCourse = function (course) {
+            // Native 每次调用增加一次计数。
+            count += 1;
+            // 使用 textContent 展示输入，避免将用户内容当作 HTML 执行。
+            document.getElementById('course').textContent = course.id + '：' + course.title;
+            // 返回普通可 JSON 序列化对象，由 WebView 编码后交给 Native 回调。
+            return { message: '收到 ' + course.title, count: count };
+        };
+    </script>
+</body>
+</html>
