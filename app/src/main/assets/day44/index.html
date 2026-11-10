@@ -1,0 +1,31 @@
+<!doctype html>
+<!-- 本地页面模拟服务器登录：不产生真实账号、Token 或网络请求。 -->
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day44 会话</title>
+</head>
+<body>
+    <h1>WebView 登录态</h1>
+    <p id="status">检查本地 Cookie 和 Token…</p>
+    <button id="login">模拟登录</button>
+    <script>
+        // 读取网页自己的 localStorage；它与 Cookie 是两种不同存储。
+        function render() {
+            const token = localStorage.getItem('day44_token');
+            const hasCookie = document.cookie.includes('day44_session=');
+            document.getElementById('status').textContent =
+                (hasCookie ? 'Cookie 会话存在；' : 'Cookie 会话不存在；') +
+                (token ? 'localStorage Token 存在' : 'localStorage Token 不存在');
+        }
+        // 模拟登录：由网页写入 Cookie 和 Token，不代表真实服务端认证。
+        document.getElementById('login').onclick = function () {
+            document.cookie = 'day44_session=demo-session; path=/';
+            localStorage.setItem('day44_token', 'demo-token');
+            render();
+        };
+        render();
+    </script>
+</body>
+</html>

@@ -21,6 +21,8 @@
         <activity android:name=".day42.NativeJavaScriptActivity" android:exported="false" />
         <!-- Day43 只允许本应用显式打开，不对外提供带桥接的页面。 -->
         <activity android:name=".day43.JavaScriptNativeActivity" android:exported="false" />
+        <!-- Day44 仅本应用内部打开会话实验页。 -->
+        <activity android:name=".day44.WebSessionActivity" android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
