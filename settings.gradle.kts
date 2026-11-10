@@ -26,3 +26,5 @@ rootProject.name = "My Application"
 include(":app")
 // Day36 示例：独立的 Library 模块，供 app 模块依赖。
 include(":course-core")
+// Day37：公开模型模块与内部实现模块，用于观察依赖暴露范围。
+include(":course-model", ":course-internal")

@@ -43,6 +43,8 @@ import com.example.myapplication.day33.FragmentNavigationDemo
 import com.example.myapplication.day34.RecyclerCourseDemo
 import com.example.myapplication.day35.OverlayDemo
 import com.example.myapplication.day36.MultiModuleDemo
+// Day37 比较跨模块依赖的编译可见范围。
+import com.example.myapplication.day37.DependencyScopeDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -86,6 +88,7 @@ internal fun LayoutLearningScreen() {
                 "Day34" -> "Day 34 · RecyclerView 列表"
                 "Day35" -> "Day 35 · 弹层与窗口"
                 "Day36" -> "Day 36 · 多模块工程结构"
+                "Day37" -> "Day 37 · 依赖管理"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -130,6 +133,7 @@ internal fun LayoutLearningScreen() {
                     onDay34Click = { page = "Day34" },
                     onDay35Click = { page = "Day35" }
                     , onDay36Click = { page = "Day36" }
+                    , onDay37Click = { page = "Day37" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -162,6 +166,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day34" -> item { RecyclerCourseDemo() }
                 page == "Day35" -> item { OverlayDemo() }
                 page == "Day36" -> item { MultiModuleDemo() }
+                page == "Day37" -> item { DependencyScopeDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -202,6 +207,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay34Click: () -> Unit
     , onDay35Click: () -> Unit
     , onDay36Click: () -> Unit
+    , onDay37Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -239,6 +245,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     // Day35 入口：比较三种弹层及其关闭和恢复行为。
     item(key = "home-day35") { LearningCard("Day 35 · 弹层与窗口", "学习 Dialog、BottomSheet、PopupWindow 和窗口生命周期。", onDay35Click) }
     item(key = "home-day36") { LearningCard("Day 36 · 多模块工程结构", "理解 settings.gradle、Application 模块、Library 模块和依赖方向。", onDay36Click) }
+    // 新课程入口沿用现有首页导航方式。
+    item(key = "home-day37") { LearningCard("Day 37 · 依赖管理", "理解 api、implementation、版本管理和依赖冲突。", onDay37Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {

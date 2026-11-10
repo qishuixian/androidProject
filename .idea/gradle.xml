@@ -11,6 +11,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/course-core" />
+            <option value="$PROJECT_DIR$/course-internal" />
+            <option value="$PROJECT_DIR$/course-model" />
           </set>
         </option>
       </GradleProjectSettings>
