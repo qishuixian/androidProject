@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -68,6 +69,16 @@ import com.example.myapplication.day46.PageTypeDemo
 @Composable
 internal fun LayoutLearningScreen() {
     var page by rememberSaveable { mutableStateOf("home") }
+    // 保存首页列表的滚动状态，避免重组时重新创建滚动位置。
+    val listState = rememberLazyListState()
+    // 进入首页后等待列表完成一次布局，再自动滚到最后一条课程。
+    LaunchedEffect(page) {
+        if (page == "home") {
+            withFrameNanos { }
+            val lastIndex = listState.layoutInfo.totalItemsCount - 1
+            if (lastIndex >= 0) listState.animateScrollToItem(lastIndex)
+        }
+    }
     val lesson = layoutLessons.firstOrNull { it.name == page }
     val back = { page = if (lesson != null) "layouts" else "home" }
     BackHandler(enabled = page != "home", onBack = back)
@@ -122,6 +133,7 @@ internal fun LayoutLearningScreen() {
         )
     }) { padding ->
         LazyColumn(
+            state = listState,
             modifier = Modifier.fillMaxSize().padding(padding),
             contentPadding = PaddingValues(20.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
