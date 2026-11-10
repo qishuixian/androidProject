@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- 仅加载 APK 内置内容，没有 iframe、远程脚本或外部资源。 -->
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day43 JS 调 Native</title>
+</head>
+<body>
+    <h1>网页主动通知 Android</h1>
+    <button id="complete">完成 Kotlin 课程</button>
+    <p id="result">尚未发送请求</p>
+    <script>
+        // 用递增编号关联响应，避免混淆请求 id 与课程 id。
+        let sequence = 0;
+        // 结果函数先定义好，再允许用户触发请求。
+        window.onNativeResult = function (response) {
+            // 只作为文字展示，不把返回内容当成 HTML 执行。
+            document.getElementById('result').textContent =
+                response.requestId + '：' + response.message + '；ok=' + response.ok;
+        };
+        // 网页按钮监听发生在网页 JS 环境中。
+        document.getElementById('complete').onclick = function () {
+            // 普通浏览器打开此页面没有 Android 注入对象，因此先检查环境。
+            if (!window.AndroidCourse || typeof window.AndroidCourse.postMessage !== 'function') {
+                document.getElementById('result').textContent = '当前环境没有 Native 桥接';
+                return;
+            }
+            // 每次点击生成一个新请求编号。
+            const requestId = 'request-' + (++sequence);
+            // 先展示等待，再调用，最终结果通过 onNativeResult 异步到达。
+            document.getElementById('result').textContent = requestId + ' 等待 Native 处理';
+            // JSON.stringify 把对象编码为约定的字符串，Native 使用 JSONObject 解析。
+            window.AndroidCourse.postMessage(JSON.stringify({
+                requestId: requestId,
+                action: 'complete',
+                courseId: 'kotlin-43'
+            }));
+        };
+    </script>
+</body>
+</html>
