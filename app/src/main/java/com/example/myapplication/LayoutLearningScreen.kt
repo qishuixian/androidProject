@@ -49,6 +49,8 @@ import com.example.myapplication.day37.DependencyScopeDemo
 import com.example.myapplication.day38.BuildVariantDemo
 // Day39 显示构建合并后的实际资源。
 import com.example.myapplication.day39.ResourceMergeDemo
+// Day40 提供本地构建排错练习。
+import com.example.myapplication.day40.BuildDiagnosisDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -95,6 +97,7 @@ internal fun LayoutLearningScreen() {
                 "Day37" -> "Day 37 · 依赖管理"
                 "Day38" -> "Day 38 · 构建变体"
                 "Day39" -> "Day 39 · 资源合并"
+                "Day40" -> "Day 40 · 构建排查"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -142,6 +145,7 @@ internal fun LayoutLearningScreen() {
                     , onDay37Click = { page = "Day37" }
                     , onDay38Click = { page = "Day38" }
                     , onDay39Click = { page = "Day39" }
+                    , onDay40Click = { page = "Day40" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -177,6 +181,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day37" -> item { DependencyScopeDemo() }
                 page == "Day38" -> item { BuildVariantDemo() }
                 page == "Day39" -> item { ResourceMergeDemo() }
+                page == "Day40" -> item { BuildDiagnosisDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -220,6 +225,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay37Click: () -> Unit
     , onDay38Click: () -> Unit
     , onDay39Click: () -> Unit
+    , onDay40Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -263,6 +269,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day38") { LearningCard("Day 38 · 构建变体", "理解 Flavor、Debug/Release、source set 和构建产物。", onDay38Click) }
     // Day39 入口沿用现有首页导航，资源选择在编译时完成。
     item(key = "home-day39") { LearningCard("Day 39 · 资源合并", "比较 main、Flavor、BuildType、变体及 Library 资源优先级。", onDay39Click) }
+    // Day40 从典型错误日志学习定位问题阶段。
+    item(key = "home-day40") { LearningCard("Day 40 · 构建排查", "区分 Gradle、JDK、SDK，练习定位编译、安装和运行错误。", onDay40Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
