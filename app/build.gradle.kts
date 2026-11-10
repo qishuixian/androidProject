@@ -39,6 +39,8 @@ android {
 }
 
 dependencies {
+    // app 依赖 Library 模块；Library 不反向依赖 app。
+    implementation(project(":course-core"))
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("androidx.fragment:fragment-ktx:1.8.9")
     implementation("androidx.room:room-runtime:2.8.4")
