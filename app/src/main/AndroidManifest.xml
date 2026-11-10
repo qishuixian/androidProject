@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity android:name=".day33.FragmentNavigationActivity" android:exported="false" />
+        <activity android:name=".day34.RecyclerCourseActivity" android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

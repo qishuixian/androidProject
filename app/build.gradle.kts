@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("androidx.fragment:fragment-ktx:1.8.9")
     implementation("androidx.room:room-runtime:2.8.4")
     implementation("androidx.room:room-ktx:2.8.4")
