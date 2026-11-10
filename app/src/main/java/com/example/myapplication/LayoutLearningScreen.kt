@@ -41,6 +41,7 @@ import com.example.myapplication.day31.XmlViewBindingDemo
 import com.example.myapplication.day32.ActivityFragmentLifecycleDemo
 import com.example.myapplication.day33.FragmentNavigationDemo
 import com.example.myapplication.day34.RecyclerCourseDemo
+import com.example.myapplication.day35.OverlayDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -82,6 +83,7 @@ internal fun LayoutLearningScreen() {
                 "Day32" -> "Day 32 · Activity 与 Fragment 生命周期"
                 "Day33" -> "Day 33 · Fragment 通信与返回栈"
                 "Day34" -> "Day 34 · RecyclerView 列表"
+                "Day35" -> "Day 35 · 弹层与窗口"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -123,7 +125,8 @@ internal fun LayoutLearningScreen() {
                     onDay31Click = { page = "Day31" },
                     onDay32Click = { page = "Day32" },
                     onDay33Click = { page = "Day33" },
-                    onDay34Click = { page = "Day34" }
+                    onDay34Click = { page = "Day34" },
+                    onDay35Click = { page = "Day35" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -154,6 +157,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day32" -> item { ActivityFragmentLifecycleDemo() }
                 page == "Day33" -> item { FragmentNavigationDemo() }
                 page == "Day34" -> item { RecyclerCourseDemo() }
+                page == "Day35" -> item { OverlayDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -192,6 +196,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay32Click: () -> Unit
     , onDay33Click: () -> Unit
     , onDay34Click: () -> Unit
+    , onDay35Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -226,6 +231,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day33") { LearningCard("Day 33 · Fragment 通信与返回栈", "通过参数、Fragment Result 与返回栈完成列表和详情通信。", onDay33Click) }
     // Day34 入口：点击后进入列表学习页，再打开传统 RecyclerView 示例。
     item(key = "home-day34") { LearningCard("Day 34 · RecyclerView 列表", "学习 Adapter、ViewHolder、DiffUtil、稳定 id 与列表状态。", onDay34Click) }
+    // Day35 入口：比较三种弹层及其关闭和恢复行为。
+    item(key = "home-day35") { LearningCard("Day 35 · 弹层与窗口", "学习 Dialog、BottomSheet、PopupWindow 和窗口生命周期。", onDay35Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
