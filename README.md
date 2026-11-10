@@ -175,6 +175,8 @@ Day37：[api、implementation 与依赖管理](docs/DAY37_DEPENDENCY_MANAGEMENT.
 
 Day38：[Build Variant、Flavor、Debug/Release](docs/DAY38_BUILD_VARIANTS.md)。引入 Flavor 后请使用 `:app:assembleDemoDebug` 或 `:app:assembleProdDebug`，APK 路径见该文档。
 
+Day39：[资源合并与 source set](docs/DAY39_RESOURCE_MERGING.md)。
+
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。

@@ -1,0 +1,4 @@
+<resources>
+    <!-- prod 构建使用此值覆盖 main。 -->
+    <string name="day39_origin">prod Flavor 资源</string>
+</resources>

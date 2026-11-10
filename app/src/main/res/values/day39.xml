@@ -1,0 +1,6 @@
+<resources>
+    <!-- 同名同配置资源的默认值，可被 Flavor、构建类型或完整变体覆盖。 -->
+    <string name="day39_origin">main 默认资源</string>
+    <!-- app 与依赖库存在同名资源时，app 的声明优先。 -->
+    <string name="day39_module_origin">app 覆盖了 course-core 的同名资源</string>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <!-- demo 构建使用此值覆盖 main；若有 debug 同名值，则 debug 更优先。 -->
+    <string name="day39_origin">demo Flavor 资源</string>
+</resources>

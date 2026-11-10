@@ -1,0 +1,6 @@
+<resources>
+    <!-- 库提供默认资源；app 定义同类型同名称资源时可以覆盖它。 -->
+    <string name="day39_module_origin">course-core 的默认资源</string>
+    <!-- 唯一名称的资源不冲突，会与 app 的资源一起参与打包。 -->
+    <string name="day39_library_only">course-core 独有资源仍被合并保留</string>
+</resources>

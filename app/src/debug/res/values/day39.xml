@@ -1,0 +1,4 @@
+<resources>
+    <!-- debug 构建类型优先于 Flavor，但低于 demoDebug 完整变体。 -->
+    <string name="day39_origin">debug 构建类型资源</string>
+</resources>

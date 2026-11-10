@@ -1,0 +1,4 @@
+<resources>
+    <!-- 完整变体优先级最高：demoDebug 最终显示此值。 -->
+    <string name="day39_origin">demoDebug 完整变体资源</string>
+</resources>
