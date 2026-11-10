@@ -20,6 +20,25 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // Flavor 表示产品/环境差异，维度用于将不同类别的 Flavor 组合。
+    flavorDimensions += "environment"
+    // 两种环境与 debug/release 组合，产生四种 app 构建变体。
+    productFlavors {
+        create("demo") {
+            // 指定此 Flavor 属于哪个维度。
+            dimension = "environment"
+            // 演示包独立安装，避免覆盖原包的数据。
+            applicationIdSuffix = ".demo"
+            // BuildConfig 字符串值需要保留 Java 字符串的双引号。
+            buildConfigField("String", "ENVIRONMENT", "\"本地演示\"")
+        }
+        create("prod") {
+            // prod 保持原 applicationId，仍只展示环境，不发起生产请求。
+            dimension = "environment"
+            buildConfigField("String", "ENVIRONMENT", "\"正式配置示例\"")
+        }
+    }
+
     buildTypes {
         release {
             optimization {
@@ -33,6 +52,8 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     buildFeatures {
+        // 为每个变体生成独立的 BuildConfig，页面读取编译时配置。
+        buildConfig = true
         compose = true
         viewBinding = true
     }

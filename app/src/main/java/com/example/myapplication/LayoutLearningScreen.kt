@@ -45,6 +45,8 @@ import com.example.myapplication.day35.OverlayDemo
 import com.example.myapplication.day36.MultiModuleDemo
 // Day37 比较跨模块依赖的编译可见范围。
 import com.example.myapplication.day37.DependencyScopeDemo
+// Day38 展示当前 APK 的编译变体。
+import com.example.myapplication.day38.BuildVariantDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -89,6 +91,7 @@ internal fun LayoutLearningScreen() {
                 "Day35" -> "Day 35 · 弹层与窗口"
                 "Day36" -> "Day 36 · 多模块工程结构"
                 "Day37" -> "Day 37 · 依赖管理"
+                "Day38" -> "Day 38 · 构建变体"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -134,6 +137,7 @@ internal fun LayoutLearningScreen() {
                     onDay35Click = { page = "Day35" }
                     , onDay36Click = { page = "Day36" }
                     , onDay37Click = { page = "Day37" }
+                    , onDay38Click = { page = "Day38" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -167,6 +171,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day35" -> item { OverlayDemo() }
                 page == "Day36" -> item { MultiModuleDemo() }
                 page == "Day37" -> item { DependencyScopeDemo() }
+                page == "Day38" -> item { BuildVariantDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -208,6 +213,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay35Click: () -> Unit
     , onDay36Click: () -> Unit
     , onDay37Click: () -> Unit
+    , onDay38Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -247,6 +253,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day36") { LearningCard("Day 36 · 多模块工程结构", "理解 settings.gradle、Application 模块、Library 模块和依赖方向。", onDay36Click) }
     // 新课程入口沿用现有首页导航方式。
     item(key = "home-day37") { LearningCard("Day 37 · 依赖管理", "理解 api、implementation、版本管理和依赖冲突。", onDay37Click) }
+    // 打开构建变体学习页，显示当前安装产物的配置。
+    item(key = "home-day38") { LearningCard("Day 38 · 构建变体", "理解 Flavor、Debug/Release、source set 和构建产物。", onDay38Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
