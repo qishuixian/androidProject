@@ -179,6 +179,8 @@ Day39：[资源合并与 source set](docs/DAY39_RESOURCE_MERGING.md)。
 
 Day40：[Gradle、JDK、SDK 与构建失败排查](docs/DAY40_BUILD_DIAGNOSIS.md)。
 
+Day41：[WebView 加载与生命周期](docs/DAY41_WEBVIEW_LIFECYCLE.md)。
+
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。
