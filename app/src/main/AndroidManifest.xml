@@ -23,6 +23,8 @@
         <activity android:name=".day43.JavaScriptNativeActivity" android:exported="false" />
         <!-- Day44 仅本应用内部打开会话实验页。 -->
         <activity android:name=".day44.WebSessionActivity" android:exported="false" />
+        <!-- Day45 仅用于本应用内部的 WebView 诊断。 -->
+        <activity android:name=".day45.WebViewDiagnosticsActivity" android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
