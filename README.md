@@ -189,6 +189,8 @@ Day44：[Cookie、Token、登录态](docs/DAY44_WEBVIEW_SESSION.md)。
 
 Day45：[WebView 白屏、调试和安全](docs/DAY45_WEBVIEW_DEBUG_SECURITY.md)。
 
+Day46：[Native、H5、Laya 页面识别](docs/DAY46_PAGE_TYPE_IDENTIFICATION.md)。当前示例使用本地模拟资源，不代表引入真实 Laya SDK。
+
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。

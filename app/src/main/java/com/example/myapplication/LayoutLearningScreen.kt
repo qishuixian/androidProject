@@ -61,6 +61,8 @@ import com.example.myapplication.day43.JavaScriptNativeDemo
 import com.example.myapplication.day44.WebSessionDemo
 // Day45 使用可控页面练习 WebView 白屏诊断。
 import com.example.myapplication.day45.WebViewDiagnosticsDemo
+// Day46 对比 Native、普通 H5 和模拟 Laya 资源。
+import com.example.myapplication.day46.PageTypeDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -113,6 +115,7 @@ internal fun LayoutLearningScreen() {
                 "Day43" -> "Day 43 · JavaScript 调 Native"
                 "Day44" -> "Day 44 · WebView 登录态"
                 "Day45" -> "Day 45 · WebView 白屏与调试"
+                "Day46" -> "Day 46 · 页面类型识别"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -166,6 +169,7 @@ internal fun LayoutLearningScreen() {
                     , onDay43Click = { page = "Day43" }
                     , onDay44Click = { page = "Day44" }
                     , onDay45Click = { page = "Day45" }
+                    , onDay46Click = { page = "Day46" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -207,6 +211,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day43" -> item { JavaScriptNativeDemo() }
                 page == "Day44" -> item { WebSessionDemo() }
                 page == "Day45" -> item { WebViewDiagnosticsDemo() }
+                page == "Day46" -> item { PageTypeDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -256,6 +261,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay43Click: () -> Unit
     , onDay44Click: () -> Unit
     , onDay45Click: () -> Unit
+    , onDay46Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -311,6 +317,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day44") { LearningCard("Day 44 · WebView 登录态", "学习 Cookie、Token、登录恢复和退出清理。", onDay44Click) }
     // Day45 练习正常页、错误页和 Debug WebView 调试开关。
     item(key = "home-day45") { LearningCard("Day 45 · WebView 白屏与调试", "学习白屏定位、错误回调、Chrome 调试和安全白名单。", onDay45Click) }
+    // Day46 先学习如何根据运行证据识别页面类型。
+    item(key = "home-day46") { LearningCard("Day 46 · 页面类型识别", "区分 Native、普通 H5、WebView 和真正 Laya 引擎页面。", onDay46Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {

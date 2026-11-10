@@ -25,6 +25,8 @@
         <activity android:name=".day44.WebSessionActivity" android:exported="false" />
         <!-- Day45 仅用于本应用内部的 WebView 诊断。 -->
         <activity android:name=".day45.WebViewDiagnosticsActivity" android:exported="false" />
+        <!-- Day46 仅用于本应用内部的页面类型识别练习。 -->
+        <activity android:name=".day46.PageTypeActivity" android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
