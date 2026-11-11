@@ -80,6 +80,8 @@ import com.example.myapplication.day52.UploadDemo
 import com.example.myapplication.day53.SocketDemo
 // Day54 本地模拟实时聊天消息。
 import com.example.myapplication.day54.ChatDemo
+// Day55 综合网络异常、取消、幂等和日志脱敏。
+import com.example.myapplication.day55.NetworkDebugDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -151,6 +153,7 @@ internal fun LayoutLearningScreen() {
                 "Day52" -> "Day 52 · 文件上传和 OSS"
                 "Day53" -> "Day 53 · WebSocket 连接与重连"
                 "Day54" -> "Day 54 · RTM 聊天消息"
+                "Day55" -> "Day 55 · 断网与调试"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -214,6 +217,7 @@ internal fun LayoutLearningScreen() {
                     , onDay52Click = { page = "Day52" }
                     , onDay53Click = { page = "Day53" }
                     , onDay54Click = { page = "Day54" }
+                    , onDay55Click = { page = "Day55" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -264,6 +268,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day52" -> item { UploadDemo() }
                 page == "Day53" -> item { SocketDemo() }
                 page == "Day54" -> item { ChatDemo() }
+                page == "Day55" -> item { NetworkDebugDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -322,6 +327,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay52Click: () -> Unit
     , onDay53Click: () -> Unit
     , onDay54Click: () -> Unit
+    , onDay55Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -393,6 +399,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day53") { LearningCard("Day 53 · WebSocket 连接与重连", "学习建连、心跳、退避重连和生命周期。", onDay53Click) }
     // Day54 消息确认与重复处理不依赖真实 SDK。
     item(key = "home-day54") { LearningCard("Day 54 · RTM 聊天消息", "学习发送确认、失败重试、接收顺序与去重。", onDay54Click) }
+    // Day55 收束网络与实时通信阶段，不制造真实断网。
+    item(key = "home-day55") { LearningCard("Day 55 · 断网与调试", "学习断网、重复消息、取消任务和日志脱敏。", onDay55Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {

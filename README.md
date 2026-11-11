@@ -207,6 +207,8 @@ Day53：[WebSocket 连接与重连](docs/DAY53_WEBSOCKET_RECONNECT.md)。
 
 Day54：[RTM 聊天消息](docs/DAY54_RTM_CHAT_MESSAGES.md)。
 
+Day55：[断网、重复消息、取消和调试](docs/DAY55_OFFLINE_DUPLICATE_CANCEL_DEBUG.md)。
+
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。
