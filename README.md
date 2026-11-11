@@ -260,3 +260,5 @@ Day58：[远端用户回调](docs/DAY58_REMOTE_USER_CALLBACKS.md)。本地模拟
 遇到依赖下载失败时，先检查仓库网络访问和 Gradle Sync 错误；缓存未完整下载前，切换离线模式无法解决缺失依赖。
 
 Day59：[音视频页面状态](docs/DAY59_VIDEO_PAGE_STATE.md)。真实 Surface 生命周期、模拟渲染绑定与旋转恢复。
+
+Day60：[Native 崩溃排查](docs/DAY60_NATIVE_CRASH_DIAGNOSIS.md)。SIGSEGV、设备差异与完整安装/热部署对照。

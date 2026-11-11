@@ -90,6 +90,8 @@ import com.example.myapplication.day57.MediaPermissionDemo
 import com.example.myapplication.day58.RemoteUserDemo
 // Day59 观察真实 Surface 生命周期与模拟绑定。
 import com.example.myapplication.day59.VideoPageStateDemo
+// Day60 通过样例日志练习 Native 崩溃诊断。
+import com.example.myapplication.day60.NativeCrashDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -166,6 +168,7 @@ internal fun LayoutLearningScreen() {
                 "Day57" -> "Day 57 · 摄像头与麦克风"
                 "Day58" -> "Day 58 · 远端用户回调"
                 "Day59" -> "Day 59 · 音视频页面状态"
+                "Day60" -> "Day 60 · Native 崩溃排查"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -234,6 +237,7 @@ internal fun LayoutLearningScreen() {
                     , onDay57Click = { page = "Day57" }
                     , onDay58Click = { page = "Day58" }
                     , onDay59Click = { page = "Day59" }
+                    , onDay60Click = { page = "Day60" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -289,6 +293,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day57" -> item { MediaPermissionDemo() }
                 page == "Day58" -> item { RemoteUserDemo() }
                 page == "Day59" -> item { VideoPageStateDemo() }
+                page == "Day60" -> item { NativeCrashDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -352,6 +357,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay57Click: () -> Unit
     , onDay58Click: () -> Unit
     , onDay59Click: () -> Unit
+    , onDay60Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -433,6 +439,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day58") { LearningCard("Day 58 · 远端用户回调", "学习用户加入、离开、网络质量和旧事件过滤。", onDay58Click) }
     // Day59 将页面状态恢复与画布资源重建分开。
     item(key = "home-day59") { LearningCard("Day 59 · 音视频页面状态", "观察 Surface、前后台和旋转恢复。", onDay59Click) }
+    // Day60 读取真实设备信息，使用固定案例练习诊断。
+    item(key = "home-day60") { LearningCard("Day 60 · Native 崩溃排查", "区分 SIGSEGV、Java 异常与加载失败，学习部署对照。", onDay60Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
