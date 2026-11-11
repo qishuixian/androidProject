@@ -74,6 +74,8 @@ import com.example.myapplication.day49.ProtocolDemo
 import com.example.myapplication.day50.BridgeDiagnosisDemo
 // Day51 演示统一请求与登录失效。
 import com.example.myapplication.day51.UnifiedRequestDemo
+// Day52 本地模拟文件上传流程。
+import com.example.myapplication.day52.UploadDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -142,6 +144,7 @@ internal fun LayoutLearningScreen() {
                 "Day49" -> "Day 49 · 协议与事件分发"
                 "Day50" -> "Day 50 · Bridge 日志与崩溃定位"
                 "Day51" -> "Day 51 · 统一请求封装"
+                "Day52" -> "Day 52 · 文件上传和 OSS"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -202,6 +205,7 @@ internal fun LayoutLearningScreen() {
                     , onDay49Click = { page = "Day49" }
                     , onDay50Click = { page = "Day50" }
                     , onDay51Click = { page = "Day51" }
+                    , onDay52Click = { page = "Day52" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -249,6 +253,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day49" -> item { ProtocolDemo() }
                 page == "Day50" -> item { BridgeDiagnosisDemo() }
                 page == "Day51" -> item { UnifiedRequestDemo() }
+                page == "Day52" -> item { UploadDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -304,6 +309,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay49Click: () -> Unit
     , onDay50Click: () -> Unit
     , onDay51Click: () -> Unit
+    , onDay52Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -369,6 +375,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day50") { LearningCard("Day 50 · Bridge 日志与崩溃定位", "学习请求日志、JS 异常、Java/Kotlin 与 C/C++ 崩溃边界。", onDay50Click) }
     // Day51 用本地假传输区分 HTTP 和业务响应。
     item(key = "home-day51") { LearningCard("Day 51 · 统一请求封装", "学习公共请求、Token、登录失效和业务错误码。", onDay51Click) }
+    // 上传练习不接触真实文件或长期凭证。
+    item(key = "home-day52") { LearningCard("Day 52 · 文件上传和 OSS", "学习 Multipart、上传进度、取消、重试和临时授权。", onDay52Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {

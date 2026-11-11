@@ -201,6 +201,8 @@ Day50：[Bridge 日志和崩溃定位](docs/DAY50_BRIDGE_LOGS_CRASH_DIAGNOSIS.md
 
 Day51：[统一请求封装、Token、业务错误码](docs/DAY51_UNIFIED_REQUEST_TOKEN_ERRORS.md)。
 
+Day52：[文件上传和 OSS](docs/DAY52_FILE_UPLOAD_OSS.md)。
+
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。
