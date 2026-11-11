@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>Day47 模拟 Laya</title></head>
+<body>
+<h1>模拟 Laya 场景</h1>
+<button id="complete">发送课程完成事件</button>
+<p id="result">尚未发送</p>
+<script>
+// 模拟引擎事件层：真实 Laya 项目可能由脚本事件系统触发同类协议。
+document.getElementById('complete').onclick = function () {
+    if (!window.LayaNative) { result.textContent = '桥接未注入'; return; }
+    window.LayaNative.emit('course_complete', JSON.stringify({ courseId: 'kotlin-47' }));
+};
+// Native 处理后通过 evaluateJavascript 调回网页。
+window.onNativeEventResult = function (response) {
+    document.getElementById('result').textContent = 'Native 返回：ok=' + response.ok;
+};
+</script>
+</body></html>

@@ -27,6 +27,8 @@
         <activity android:name=".day45.WebViewDiagnosticsActivity" android:exported="false" />
         <!-- Day46 仅用于本应用内部的页面类型识别练习。 -->
         <activity android:name=".day46.PageTypeActivity" android:exported="false" />
+        <!-- Day47 模拟 Laya 页面仅供本应用内部启动。 -->
+        <activity android:name=".day47.LayaEventActivity" android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
