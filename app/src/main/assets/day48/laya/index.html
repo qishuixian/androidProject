@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>Day48 模拟 Laya</title></head>
+<body>
+<h1>模拟 Laya 场景</h1><p id="result">等待 Native 协议</p>
+<script>
+// Native 通过协议号调用这个入口；真实 Laya 可映射到引擎事件系统。
+window.onNativeProtocol = function (protocol, payload) {
+    if (protocol !== 1001 || payload.courseId !== 'kotlin-48') {
+        return { ok: false, reason: 'unknown protocol' };
+    }
+    // 模拟引擎修改场景对象。
+    document.getElementById('result').textContent =
+        '协议 ' + protocol + '：高亮 ' + payload.courseId + '，颜色=' + payload.color;
+    // 返回可序列化对象，WebView 会把它编码为 JSON 文本交给 Native 回调。
+    return { ok: true, protocol: protocol, courseId: payload.courseId };
+};
+</script>
+</body></html>

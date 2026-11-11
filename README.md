@@ -193,6 +193,8 @@ Day46：[Native、H5、Laya 页面识别](docs/DAY46_PAGE_TYPE_IDENTIFICATION.md
 
 Day47：[Laya 调 Native](docs/DAY47_LAYA_CALL_NATIVE.md)。当前使用本地模拟 Laya 资源，未引入真实引擎。
 
+Day48：[Native 调 Laya](docs/DAY48_NATIVE_CALL_LAYA.md)。当前使用本地模拟 Laya 资源，未引入真实引擎。
+
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。

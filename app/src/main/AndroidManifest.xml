@@ -29,6 +29,8 @@
         <activity android:name=".day46.PageTypeActivity" android:exported="false" />
         <!-- Day47 模拟 Laya 页面仅供本应用内部启动。 -->
         <activity android:name=".day47.LayaEventActivity" android:exported="false" />
+        <!-- Day48 模拟 Native 调 Laya 页面仅供本应用内部打开。 -->
+        <activity android:name=".day48.NativeLayaActivity" android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
