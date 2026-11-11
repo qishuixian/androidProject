@@ -9,15 +9,20 @@ import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 // Compose 布局和操作按钮用于控制实验。
+// 显式背景避免 Surface 的透明挖孔暴露窗口黑底。
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 // 普通状态管理临时资源，Saveable 状态保存可恢复的小字段。
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+// 独立裁剪层把 SurfaceView 的挖孔限制在画布边界。
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -127,7 +132,12 @@ internal fun VideoPageStateDemo() {
         onDispose { binding.unbind() }
     }
     // 页面展示状态与实验按钮。
-    Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+    Column(
+        // 内容区域使用主题背景，文字和按钮不依赖底层窗口颜色。
+        modifier = Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.surface),
+        // 保持原有纵向间隔。
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
         // 明确本例范围，下面的占位图不是真实视频。
         Text("Day59 · 音视频页面状态（模拟绑定，无视频帧）")
         // 显示可恢复身份与不可保存的运行期条件。
@@ -172,7 +182,10 @@ internal fun VideoPageStateDemo() {
                     }
                 },
                 // 给嵌入的 View 明确尺寸，适应首页滚动容器。
-                modifier = Modifier.fillMaxWidth().height(180.dp),
+                modifier = Modifier.fillMaxWidth().height(180.dp).graphicsLayer {
+                    // SurfaceView 清除透明孔时，只影响这个独立图层的范围。
+                    clip = true
+                },
                 // Compose 释放 View 时也进行幂等清理。
                 onRelease = { view ->
                     // 防止旧绑定继续引用已经移除的画布。

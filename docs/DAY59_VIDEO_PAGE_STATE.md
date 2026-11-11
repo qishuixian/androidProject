@@ -86,3 +86,7 @@ Java 的 `holder.addCallback(new SurfaceHolder.Callback() { ... })` 对应本例
 旧版未向 Surface 提交任何画面，中间画布可能呈现黑色；新版在 surfaceChanged 中通过 lockCanvas / unlockCanvasAndPost 成对绘制静态提示。它不代表收到远端首帧。接入真实 SDK 后应移除这段占位绘制，避免与 SDK 争用 Surface。
 
 若标题、按钮也全部不可见，这是整页显示异常，不能用“没有视频帧”解释；需要结合对应设备截图、Activity 和 Logcat 继续定位。
+
+### Compose 嵌入 SurfaceView 的显示边界
+
+SurfaceView 默认使用独立 Surface，并通过宿主窗口的透明区域显示。嵌入 Compose 时，本例给 AndroidView 增加 graphicsLayer { clip = true }，把透明挖孔隔离在画布自己的图层内；外层 Column 显式使用主题背景，避免窗口黑底透出后文字和按钮看不清。占位绘制只解决画布没有内容的问题，不替代图层边界修正。
