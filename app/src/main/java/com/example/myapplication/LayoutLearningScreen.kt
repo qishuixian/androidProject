@@ -86,6 +86,8 @@ import com.example.myapplication.day55.NetworkDebugDemo
 import com.example.myapplication.day56.VideoSdkDemo
 // Day57 申请真实权限，但不采集音视频。
 import com.example.myapplication.day57.MediaPermissionDemo
+// Day58 本地模拟远端用户事件。
+import com.example.myapplication.day58.RemoteUserDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -160,6 +162,7 @@ internal fun LayoutLearningScreen() {
                 "Day55" -> "Day 55 · 断网与调试"
                 "Day56" -> "Day 56 · 音视频 SDK 生命周期"
                 "Day57" -> "Day 57 · 摄像头与麦克风"
+                "Day58" -> "Day 58 · 远端用户回调"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -226,6 +229,7 @@ internal fun LayoutLearningScreen() {
                     , onDay55Click = { page = "Day55" }
                     , onDay56Click = { page = "Day56" }
                     , onDay57Click = { page = "Day57" }
+                    , onDay58Click = { page = "Day58" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -279,6 +283,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day55" -> item { NetworkDebugDemo() }
                 page == "Day56" -> item { VideoSdkDemo() }
                 page == "Day57" -> item { MediaPermissionDemo() }
+                page == "Day58" -> item { RemoteUserDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -340,6 +345,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay55Click: () -> Unit
     , onDay56Click: () -> Unit
     , onDay57Click: () -> Unit
+    , onDay58Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -417,6 +423,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day56") { LearningCard("Day 56 · 音视频 SDK 生命周期", "学习初始化、加入频道、退出和资源释放。", onDay56Click) }
     // Day57 将系统授权和模拟采集状态分开。
     item(key = "home-day57") { LearningCard("Day 57 · 摄像头与麦克风", "学习权限、音视频状态和前后台切换。", onDay57Click) }
+    // Day58 练习事件线程与频道代次，不进行真实采集。
+    item(key = "home-day58") { LearningCard("Day 58 · 远端用户回调", "学习用户加入、离开、网络质量和旧事件过滤。", onDay58Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
