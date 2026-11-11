@@ -70,6 +70,8 @@ import com.example.myapplication.day47.LayaEventDemo
 import com.example.myapplication.day48.NativeLayaDemo
 // Day49 本地模拟协议接收和事件路由。
 import com.example.myapplication.day49.ProtocolDemo
+// Day50 使用固定日志案例学习跨层诊断。
+import com.example.myapplication.day50.BridgeDiagnosisDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -136,6 +138,7 @@ internal fun LayoutLearningScreen() {
                 "Day47" -> "Day 47 · Laya 调 Native"
                 "Day48" -> "Day 48 · Native 调 Laya"
                 "Day49" -> "Day 49 · 协议与事件分发"
+                "Day50" -> "Day 50 · Bridge 日志与崩溃定位"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -194,6 +197,7 @@ internal fun LayoutLearningScreen() {
                     , onDay47Click = { page = "Day47" }
                     , onDay48Click = { page = "Day48" }
                     , onDay49Click = { page = "Day49" }
+                    , onDay50Click = { page = "Day50" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -239,6 +243,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day47" -> item { LayaEventDemo() }
                 page == "Day48" -> item { NativeLayaDemo() }
                 page == "Day49" -> item { ProtocolDemo() }
+                page == "Day50" -> item { BridgeDiagnosisDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -292,6 +297,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay47Click: () -> Unit
     , onDay48Click: () -> Unit
     , onDay49Click: () -> Unit
+    , onDay50Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -353,6 +359,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day48") { LearningCard("Day 48 · Native 调 Laya", "学习 JS 调用、协议号、生命周期和回调结果。", onDay48Click) }
     // Day49 练习校验和去重，不加载真实 Laya 引擎。
     item(key = "home-day49") { LearningCard("Day 49 · 协议与事件分发", "理解协议号、JSON、RxBus 概念、线程和重复消息。", onDay49Click) }
+    // Day50 不制造真实闪退，用案例解释错误边界与下一步动作。
+    item(key = "home-day50") { LearningCard("Day 50 · Bridge 日志与崩溃定位", "学习请求日志、JS 异常、Java/Kotlin 与 C/C++ 崩溃边界。", onDay50Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
