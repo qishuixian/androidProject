@@ -88,6 +88,7 @@ Koin 用来统一声明和提供对象。例如 ViewModel 需要 Repository 时�
 - [Android 开发基础课程](https://developer.android.com/courses)
 - [Compose 官方文档](https://developer.android.com/develop/ui/compose/documentation)
 - [Koin 官方文档](https://insert-koin.io/docs/quickstart/android/)
+- [Android 开发博客专栏](https://blog.csdn.net/qishuixian/category_13219784.html?spm=1001.2014.3001.5482)
 
 ## 功能入口
 
@@ -208,6 +209,8 @@ Day53：[WebSocket 连接与重连](docs/DAY53_WEBSOCKET_RECONNECT.md)。
 Day54：[RTM 聊天消息](docs/DAY54_RTM_CHAT_MESSAGES.md)。
 
 Day55：[断网、重复消息、取消和调试](docs/DAY55_OFFLINE_DUPLICATE_CANCEL_DEBUG.md)。
+
+Day56：[音视频 SDK 生命周期](docs/DAY56_VIDEO_SDK_LIFECYCLE.md)。当前使用本地状态机，未接入真实 SDK。
 
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
