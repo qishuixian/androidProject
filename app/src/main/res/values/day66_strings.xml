@@ -1,0 +1,10 @@
+<resources>
+    <!-- 默认资源是必要兜底；本课默认内容使用英文，不代表 values 固定等于英文。 -->
+    <string name="day66_greeting">[values] Hello from the default resources</string>
+    <!-- 每种配置都提供同名观察字段，通过内容标记实际选中的条目。 -->
+    <string name="day66_region">[values] Default region message</string>
+    <!-- 只有默认目录定义此条目，验证回退按资源逐项进行。 -->
+    <string name="day66_default_only">[values only] This entry has no translated versions</string>
+    <!-- 参数文案同样参与当前配置匹配。 -->
+    <string name="day66_click">[values] Preview click %1$d</string>
+</resources>

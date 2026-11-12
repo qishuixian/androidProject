@@ -1,0 +1,8 @@
+<resources>
+    <!-- 泛中文目录，本课放简体；目录名自身不强制内容采用简体。 -->
+    <string name="day66_greeting">[values-zh] 你好，泛中文资源（本课使用简体）</string>
+    <!-- 香港更具体的同名条目可参与匹配。 -->
+    <string name="day66_region">[values-zh] 泛中文地区文案</string>
+    <!-- 参数模板翻译完整句子，不拼接碎片。 -->
+    <string name="day66_click">[values-zh] 预览区第 %1$d 次点击</string>
+</resources>

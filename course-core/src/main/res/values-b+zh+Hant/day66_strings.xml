@@ -1,0 +1,4 @@
+<resources>
+    <!-- 库使用独立 R，但仍按当前 Resources 配置选择翻译。 -->
+    <string name="day66_library_message">[course-core/values-b+zh+Hant] 程式庫的繁體文案</string>
+</resources>

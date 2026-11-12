@@ -1,0 +1,4 @@
+<resources>
+    <!-- 库的默认资源与 app 资源一起进入最终资源表。 -->
+    <string name="day66_library_message">[course-core/values] Library default message</string>
+</resources>

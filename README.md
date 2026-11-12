@@ -272,3 +272,5 @@ Day63：[复杂输入调试](docs/DAY63_INPUT_CONNECTION_DEBUG.md)。真实 Inpu
 Day64：[Native 与 Laya 输入](docs/DAY64_NATIVE_LAYA_INPUT.md)。真实 Native/本地网页输入，模拟引擎侧焦点交接与迟到请求。
 
 Day65：[Android 资源](docs/DAY65_ANDROID_RESOURCES.md)。XML、R.string、Compose、参数文案、数量文案与资源合并。
+
+Day66：[多语言 fallback](docs/DAY66_LOCALE_FALLBACK.md)。局部语言预览、字形/地区匹配和逐资源回退。

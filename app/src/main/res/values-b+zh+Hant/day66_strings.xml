@@ -1,0 +1,8 @@
+<resources>
+    <!-- BCP47 资源目录指定中文与繁体字形，不绑定单一地区。 -->
+    <string name="day66_greeting">[values-b+zh+Hant] 你好，繁體中文資源</string>
+    <!-- 地区目录未定义该条目时，仍由系统按完整配置匹配。 -->
+    <string name="day66_region">[values-b+zh+Hant] 繁體中文地區文案</string>
+    <!-- 事件时也应使用预览区 Context 查询。 -->
+    <string name="day66_click">[values-b+zh+Hant] 預覽區第 %1$d 次點擊</string>
+</resources>

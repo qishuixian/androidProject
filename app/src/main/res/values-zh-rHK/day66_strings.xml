@@ -1,0 +1,5 @@
+<resources>
+    <!-- 传统地区限定符：语言 zh，地区 HK；r 是目录语法，不是 Locale tag。 -->
+    <string name="day66_greeting">[values-zh-rHK] 你好，香港中文資源</string>
+    <!-- 本课只覆盖 greeting，其他键继续独立匹配，不整包锁定此目录。 -->
+</resources>

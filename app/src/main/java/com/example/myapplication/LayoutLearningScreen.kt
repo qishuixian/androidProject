@@ -102,6 +102,8 @@ import com.example.myapplication.day63.InputTraceDemo
 import com.example.myapplication.day64.DualInputDemo
 // Day65 对照各层资源读取与合并。
 import com.example.myapplication.day65.AndroidResourcesDemo
+// Day66 局部预览语言匹配与资源回退。
+import com.example.myapplication.day66.LocaleFallbackDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -184,6 +186,7 @@ internal fun LayoutLearningScreen() {
                 "Day63" -> "Day 63 · 复杂输入调试"
                 "Day64" -> "Day 64 · Native 与 Laya 输入"
                 "Day65" -> "Day 65 · Android 资源"
+                "Day66" -> "Day 66 · 多语言 fallback"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -258,6 +261,7 @@ internal fun LayoutLearningScreen() {
                     , onDay63Click = { page = "Day63" }
                     , onDay64Click = { page = "Day64" }
                     , onDay65Click = { page = "Day65" }
+                    , onDay66Click = { page = "Day66" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -319,6 +323,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day63" -> item { InputTraceDemo() }
                 page == "Day64" -> item { DualInputDemo() }
                 page == "Day65" -> item { AndroidResourcesDemo() }
+                page == "Day66" -> item { LocaleFallbackDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -388,6 +393,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay63Click: () -> Unit
     , onDay64Click: () -> Unit
     , onDay65Click: () -> Unit
+    , onDay66Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -481,6 +487,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day64") { LearningCard("Day 64 · Native 与 Laya 输入", "实验两套输入控件的焦点交接与旧请求过滤。", onDay64Click) }
     // Day65 比较 XML、Compose、点击事件和库资源。
     item(key = "home-day65") { LearningCard("Day 65 · Android 资源", "学习 strings.xml、@string、格式化与资源合并。", onDay65Click) }
+    // Day66 不改变全局语言，仅创建局部资源预览。
+    item(key = "home-day66") { LearningCard("Day 66 · 多语言 fallback", "观察 values、繁体字形、地区目录与逐项回退。", onDay66Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
