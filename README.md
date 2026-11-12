@@ -264,3 +264,5 @@ Day59：[音视频页面状态](docs/DAY59_VIDEO_PAGE_STATE.md)。真实 Surface
 Day60：[Native 崩溃排查](docs/DAY60_NATIVE_CRASH_DIAGNOSIS.md)。SIGSEGV、设备差异与完整安装/热部署对照。
 
 Day61：[EditText 与 TextField](docs/DAY61_EDITTEXT_TEXTFIELD.md)。真实输入、焦点、selection 与清空对照。
+
+Day62：[键盘与 IME](docs/DAY62_KEYBOARD_IME.md)。键盘请求、IME 提交与中文组合输入。
