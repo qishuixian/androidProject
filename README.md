@@ -1,8 +1,21 @@
-# Android 入门学习项目
+# Android 学习项目
 
-面向 Android 初学者，尤其是有前端开发经验的学习者。学习范围包括 Java、Kotlin、Android 基础、布局与 Koin 依赖注入。目前已实现六种 Android View 布局的学习页面，其他主题按下面的路线逐步学习和扩展。
+这是一个面向 Android 初学者、也适合有前端经验开发者的渐进式学习项目。项目用 Kotlin、Jetpack Compose 和传统 Android View 搭建可运行的示例，同时配套 Java、Kotlin、页面状态、网络、WebView、音视频、输入法、多语言和权限等源码阅读文档。
 
-完整教程见：[Android Java + Kotlin 混合学习教程](docs/ANDROID_JAVA_KOTLIN_TUTORIAL.md)；当前课程见：[Day 1：Java 基础与 Android 代码阅读](docs/DAY1_JAVA_BASICS.md)。 下一课：[Day 2：Kotlin 基础与 Java 对照](docs/DAY2_KOTLIN_BASICS.md)。 当前课程：[Day 3：Android 页面基础与运行链路](docs/DAY3_ANDROID_PAGE_BASICS.md)。 下一课：[Day 4：Android UI 细节与交互](docs/DAY4_ANDROID_UI_DETAILS.md)。 当前课程：[Day 5：页面状态、返回与 ViewModel](docs/DAY5_STATE_AND_VIEWMODEL.md)。 下一课：[Day 6：依赖注入与 Koin](docs/DAY6_DI_KOIN.md)。 [Day 7：协程、异步加载与重试](docs/DAY7_COROUTINES_AND_LOADING.md)。
+当前 App 已提供六种传统 View 布局的交互式学习页面；`docs/` 保存按 Day 编排的学习资料，应用源码位于 `app/src/main/`。
+
+## 快速导航
+
+- [完整教程](docs/ANDROID_JAVA_KOTLIN_TUTORIAL.md)
+- [Day 1：Java 基础与 Android 代码阅读](docs/DAY1_JAVA_BASICS.md)
+- [Day 2：Kotlin 基础与 Java 对照](docs/DAY2_KOTLIN_BASICS.md)
+- [Day 3：Android 页面基础与运行链路](docs/DAY3_ANDROID_PAGE_BASICS.md)
+- [Day 7：协程、异步加载与重试](docs/DAY7_COROUTINES_AND_LOADING.md)
+- [Day 9～Day 79 学习路线](docs/DAY9_TO_DAY79_ROADMAP.md)
+- [Day 31～Day 55 学习计划](docs/DAY31_TO_DAY55_LEARNING_PLAN.md)
+- [源码阅读路线](#源码阅读路线)
+- [启动项目](#启动项目)
+- [检查与测试](#检查与测试)
 
 ## 技术栈与学习方向
 
@@ -117,7 +130,7 @@ Koin 用来统一声明和提供对象。例如 ViewModel 需要 Repository 时�
 
 - Android Studio：使用支持项目 Android Gradle Plugin 的版本。
 - Android Gradle Plugin：`9.4.1`；Gradle Wrapper：`9.6.0`。
-- Gradle Daemon JVM：项目的 `gradle/gradle-daemon-jvm.properties` 指定 Java `25`。
+- Gradle Daemon JVM：项目的 `gradle/gradle-daemon-jvm.properties` 指定工具链版本 `17`。
 - Android SDK：`compileSdk = 37`、`targetSdk = 37`。
 - 运行设备：Android 7.0（API 24）及以上的手机或模拟器。
 
@@ -160,9 +173,15 @@ Debug APK 默认位于 `app/build/outputs/apk/debug/app-debug.apk`。若 `adb` �
 
 ## 源码阅读路线
 
-课程路线：Day1～Day8 的已完成文档见 `docs/`，Day9～Day79 的规划见 [DAY9_TO_DAY79_ROADMAP.md](docs/DAY9_TO_DAY79_ROADMAP.md)。
+所有课程文档都在 [`docs/`](docs/) 下。Day1～Day30 是基础与综合实践，Day31 起进入源码阅读专题；完整规划见 [Day9～Day79 路线](docs/DAY9_TO_DAY79_ROADMAP.md)，近期安排见 [Day31～Day55 学习计划](docs/DAY31_TO_DAY55_LEARNING_PLAN.md)。
 
-近期学习计划：Day31～Day55 见 [DAY31_TO_DAY55_LEARNING_PLAN.md](docs/DAY31_TO_DAY55_LEARNING_PLAN.md)。
+建议按以下顺序阅读：
+
+1. [Day1～Day8：Java、Kotlin、页面、状态和列表基础](docs/DAY1_JAVA_BASICS.md)
+2. [Day9～Day30：Compose 性能、架构、网络、Room、并发、分页、测试与发布](docs/DAY9_TO_DAY79_ROADMAP.md)
+3. [Day31～Day40：View、Fragment、多模块与 Gradle](docs/DAY31_TO_DAY55_LEARNING_PLAN.md)
+4. [Day41～Day55：WebView、Bridge、网络、WebSocket、聊天与调试](docs/DAY31_TO_DAY55_LEARNING_PLAN.md)
+5. Day56～Day69：音视频、输入法、资源、多语言和运行时权限（见下方专题链接）
 
 Day33：[Fragment 通信与返回栈](docs/DAY33_FRAGMENT_COMMUNICATION_BACK_STACK.md)。
 
@@ -216,10 +235,32 @@ Day57：[摄像头与麦克风权限](docs/DAY57_CAMERA_MIC_PERMISSIONS.md)。�
 
 Day58：[远端用户回调](docs/DAY58_REMOTE_USER_CALLBACKS.md)。本地模拟加入、离开、网络质量和旧会话过滤。
 
+Day59：[音视频页面状态](docs/DAY59_VIDEO_PAGE_STATE.md)。真实 Surface 生命周期、模拟渲染绑定与旋转恢复。
+
+Day60：[Native 崩溃排查](docs/DAY60_NATIVE_CRASH_DIAGNOSIS.md)。SIGSEGV、设备差异与完整安装/热部署对照。
+
+Day61：[EditText 与 TextField](docs/DAY61_EDITTEXT_TEXTFIELD.md)。真实输入、焦点、selection 与清空对照。
+
+Day62：[键盘与 IME](docs/DAY62_KEYBOARD_IME.md)。键盘请求、IME 提交与中文组合输入。
+
+Day63：[复杂输入调试](docs/DAY63_INPUT_CONNECTION_DEBUG.md)。真实 InputConnection、按键与焦点链路观察。
+
+Day64：[Native 与 Laya 输入](docs/DAY64_NATIVE_LAYA_INPUT.md)。真实 Native/本地网页输入，模拟引擎侧焦点交接与迟到请求。
+
+Day65：[Android 资源](docs/DAY65_ANDROID_RESOURCES.md)。XML、R.string、Compose、参数文案、数量文案与资源合并。
+
+Day66：[多语言 fallback](docs/DAY66_LOCALE_FALLBACK.md)。局部语言预览、字形/地区匹配和逐资源回退。
+
+Day67：[业务语言边界](docs/DAY67_BUSINESS_LANGUAGE_BOUNDARIES.md)。界面语言、报告语言、Native 与模拟 Laya 文案。
+
+Day68：[多语言测试](docs/DAY68_LOCALIZATION_TESTS.md)。手机布局、文本溢出、日期、数字和货币格式。
+
+Day69：[运行时权限](docs/DAY69_RUNTIME_PERMISSIONS.md)。按需申请、拒绝反馈、设置返回检查与 SAF 文档授权。
+
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。
-- [LayoutLessons.kt](app/src/main/java/com/example/myapplication/LayoutLessons.kt)：六种布局的说明、属性、代码片段、练习与资源映射。
+- [LayoutLesson.kt](app/src/main/java/com/example/myapplication/LayoutLesson.kt)：六种布局的说明、属性、代码片段、练习与资源映射。
 - [res/layout](app/src/main/res/layout)：六种布局的完整 XML 示例。
 - [ui/theme](app/src/main/java/com/example/myapplication/ui/theme)：Compose 主题、颜色和字体。
 - [AndroidManifest.xml](app/src/main/AndroidManifest.xml)：启动 Activity 等应用配置。
@@ -259,22 +300,4 @@ Day58：[远端用户回调](docs/DAY58_REMOTE_USER_CALLBACKS.md)。本地模拟
 
 遇到依赖下载失败时，先检查仓库网络访问和 Gradle Sync 错误；缓存未完整下载前，切换离线模式无法解决缺失依赖。
 
-Day59：[音视频页面状态](docs/DAY59_VIDEO_PAGE_STATE.md)。真实 Surface 生命周期、模拟渲染绑定与旋转恢复。
 
-Day60：[Native 崩溃排查](docs/DAY60_NATIVE_CRASH_DIAGNOSIS.md)。SIGSEGV、设备差异与完整安装/热部署对照。
-
-Day61：[EditText 与 TextField](docs/DAY61_EDITTEXT_TEXTFIELD.md)。真实输入、焦点、selection 与清空对照。
-
-Day62：[键盘与 IME](docs/DAY62_KEYBOARD_IME.md)。键盘请求、IME 提交与中文组合输入。
-
-Day63：[复杂输入调试](docs/DAY63_INPUT_CONNECTION_DEBUG.md)。真实 InputConnection、按键与焦点链路观察。
-
-Day64：[Native 与 Laya 输入](docs/DAY64_NATIVE_LAYA_INPUT.md)。真实 Native/本地网页输入，模拟引擎侧焦点交接与迟到请求。
-
-Day65：[Android 资源](docs/DAY65_ANDROID_RESOURCES.md)。XML、R.string、Compose、参数文案、数量文案与资源合并。
-
-Day66：[多语言 fallback](docs/DAY66_LOCALE_FALLBACK.md)。局部语言预览、字形/地区匹配和逐资源回退。
-
-Day67：[业务语言边界](docs/DAY67_BUSINESS_LANGUAGE_BOUNDARIES.md)。界面语言、报告语言、Native 与模拟 Laya 文案。
-
-Day68：[多语言测试](docs/DAY68_LOCALIZATION_TESTS.md)。手机布局、文本溢出、日期、数字和货币格式。
