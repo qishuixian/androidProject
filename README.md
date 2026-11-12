@@ -266,3 +266,5 @@ Day60：[Native 崩溃排查](docs/DAY60_NATIVE_CRASH_DIAGNOSIS.md)。SIGSEGV、
 Day61：[EditText 与 TextField](docs/DAY61_EDITTEXT_TEXTFIELD.md)。真实输入、焦点、selection 与清空对照。
 
 Day62：[键盘与 IME](docs/DAY62_KEYBOARD_IME.md)。键盘请求、IME 提交与中文组合输入。
+
+Day63：[复杂输入调试](docs/DAY63_INPUT_CONNECTION_DEBUG.md)。真实 InputConnection、按键与焦点链路观察。
