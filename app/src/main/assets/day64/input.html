@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <!-- 页面不加载远端脚本或引擎。 -->
+    <meta charset="utf-8">
+    <!-- 禁止联网、框架与表单跳转，只允许本地内联演示代码。 -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; form-action 'none'">
+    <!-- 与设备宽度对齐，避免输入框比例过小。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* 使用普通网页布局，不伪装真实 Laya 画布。 */
+        body { margin: 16px; font: 16px sans-serif; color: #172938; background: #edf5fa; }
+        /* 输入框限制在网页内部宽度。 */
+        input { box-sizing: border-box; width: 100%; font-size: 18px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <!-- 明确真实网页与模拟引擎的边界。 -->
+    <p>模拟 Laya 输入侧：实际是 HTML input，没有 Laya 引擎。</p>
+    <!-- 由浏览器与系统 IME 管理真实输入。 -->
+    <input id="engineInput" placeholder="网页侧输入测试文字" autocomplete="off">
+    <!-- 展示网页自己的焦点状态，而非仅看 WebView.hasFocus。 -->
+    <p id="state">DOM 焦点：未获取</p>
+    <script>
+        // 保存当前网页的真实 DOM 输入框。
+        const input = document.getElementById('engineInput');
+        // 固定事件名交给 WebChromeClient，不发送输入正文。
+        function report(event) { console.log('DAY64:' + event); }
+        // DOM 焦点和 Android View 焦点是两层状态。
+        input.addEventListener('focus', () => {
+            // 更新网页可见状态。
+            document.getElementById('state').textContent = 'DOM 焦点：已获取';
+            // Native 只接收固定调试事件。
+            report('DOM_FOCUS');
+        });
+        // 失焦后仍保留文字，不以清空代替交接。
+        input.addEventListener('blur', () => {
+            // 更新网页状态。
+            document.getElementById('state').textContent = 'DOM 焦点：已释放';
+            // 不将失焦误认为网页销毁。
+            report('DOM_BLUR');
+        });
+        // 输入法组合事件仅用于观察。
+        input.addEventListener('compositionstart', () => report('COMPOSITION_START'));
+        // 组合结束不等于业务提交。
+        input.addEventListener('compositionend', () => report('COMPOSITION_END'));
+    </script>
+</body>
+</html>

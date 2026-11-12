@@ -19,6 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <!-- Day64 独立承载原生与本地网页输入实验，仅应用内部访问。 -->
+        <activity android:name=".day64.DualInputActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
         <activity android:name=".day33.FragmentNavigationActivity" android:exported="false" />
         <activity android:name=".day34.RecyclerCourseActivity" android:exported="false" />
         <!-- Day41 使用独立窗口承载 WebView，不向其他应用暴露入口。 -->
