@@ -1,0 +1,8 @@
+<resources>
+    <!-- 默认资源使用英文，界面与报告分别通过各自 Context 查询。 -->
+    <string name="day67_native_title">[Native] Course centre</string>
+    <!-- 按钮属于界面语言，不随报告语言变化。 -->
+    <string name="day67_native_action">[Native] Continue learning</string>
+    <!-- 报告内容使用显式报告语言，不偷用当前界面 Context。 -->
+    <string name="day67_report_summary">[Report] Completed 3 lessons. Keep practising.</string>
+</resources>

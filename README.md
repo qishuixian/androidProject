@@ -274,3 +274,5 @@ Day64：[Native 与 Laya 输入](docs/DAY64_NATIVE_LAYA_INPUT.md)。真实 Nativ
 Day65：[Android 资源](docs/DAY65_ANDROID_RESOURCES.md)。XML、R.string、Compose、参数文案、数量文案与资源合并。
 
 Day66：[多语言 fallback](docs/DAY66_LOCALE_FALLBACK.md)。局部语言预览、字形/地区匹配和逐资源回退。
+
+Day67：[业务语言边界](docs/DAY67_BUSINESS_LANGUAGE_BOUNDARIES.md)。界面语言、报告语言、Native 与模拟 Laya 文案。

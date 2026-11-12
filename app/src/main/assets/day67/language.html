@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- 固定本地网页，不加载真实 Laya 引擎。 -->
+    <meta charset="utf-8">
+    <!-- 禁止远程资源与表单提交。 -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; form-action 'none'">
+    <!-- 页面适配手机与平板。 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        /* 使用本地网页自己的样式与语言字典。 */
+        body { font: 17px sans-serif; background: #eaf2fb; color: #17324c; margin: 16px; }
+    </style>
+</head>
+<body>
+    <!-- 文案由显式界面语言消息更新，Android R 不会自动翻译 DOM。 -->
+    <h3 id="title">Waiting for appLanguage</h3>
+    <!-- 展示实际收到的语言标签，避免仅凭文案外观推断。 -->
+    <p id="language"></p>
+    <script>
+        // 固定教学字典，不是生产 Laya 翻译服务。
+        const messages = {
+            'en-US': '[Simulated Laya] Course centre',
+            'zh-CN': '[模拟 Laya] 课程中心',
+            'zh-HK': '[模擬 Laya] 課程中心'
+        };
+        // Native 只传递界面语言，不传报告语言。
+        window.setAppLanguage = function (tag) {
+            // 本地字典独立规定回退，和 Android 资源匹配不是同一个算法。
+            const effective = Object.prototype.hasOwnProperty.call(messages, tag) ? tag : 'en-US';
+            // 使用 textContent，不将消息作为 HTML 执行。
+            document.getElementById('title').textContent = messages[effective];
+            // 显示请求与实际使用标签。
+            document.getElementById('language').textContent = 'appLanguage=' + tag + '; effective=' + effective;
+            // 更新网页语义语言，不会反向修改 Android 配置。
+            document.documentElement.lang = effective;
+        };
+    </script>
+</body>
+</html>

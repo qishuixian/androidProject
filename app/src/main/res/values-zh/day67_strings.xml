@@ -1,0 +1,8 @@
+<resources>
+    <!-- 界面中文与报告中文共享资源表，但读取入口不同。 -->
+    <string name="day67_native_title">[Native] 课程中心</string>
+    <!-- 界面动作。 -->
+    <string name="day67_native_action">[Native] 继续学习</string>
+    <!-- 本地报告内容，不是服务器返回结果。 -->
+    <string name="day67_report_summary">[报告] 已完成 3 节课程，请继续练习。</string>
+</resources>

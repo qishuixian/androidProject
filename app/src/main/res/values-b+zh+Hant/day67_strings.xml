@@ -1,0 +1,8 @@
+<resources>
+    <!-- 繁体 UI 由当前 UI 配置选择。 -->
+    <string name="day67_native_title">[Native] 課程中心</string>
+    <!-- 与报告语言独立。 -->
+    <string name="day67_native_action">[Native] 繼續學習</string>
+    <!-- 报告需要独立配置 Context。 -->
+    <string name="day67_report_summary">[報告] 已完成 3 節課程，請繼續練習。</string>
+</resources>
