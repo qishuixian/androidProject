@@ -276,3 +276,5 @@ Day65：[Android 资源](docs/DAY65_ANDROID_RESOURCES.md)。XML、R.string、Com
 Day66：[多语言 fallback](docs/DAY66_LOCALE_FALLBACK.md)。局部语言预览、字形/地区匹配和逐资源回退。
 
 Day67：[业务语言边界](docs/DAY67_BUSINESS_LANGUAGE_BOUNDARIES.md)。界面语言、报告语言、Native 与模拟 Laya 文案。
+
+Day68：[多语言测试](docs/DAY68_LOCALIZATION_TESTS.md)。手机布局、文本溢出、日期、数字和货币格式。

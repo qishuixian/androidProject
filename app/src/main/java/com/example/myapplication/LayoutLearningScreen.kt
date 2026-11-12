@@ -106,6 +106,8 @@ import com.example.myapplication.day65.AndroidResourcesDemo
 import com.example.myapplication.day66.LocaleFallbackDemo
 // Day67 分离 UI 与报告的语言选择。
 import com.example.myapplication.day67.BusinessLanguageDemo
+// Day68 练习多语言布局、溢出和格式化测试。
+import com.example.myapplication.day68.LocalizationTestDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -190,6 +192,7 @@ internal fun LayoutLearningScreen() {
                 "Day65" -> "Day 65 · Android 资源"
                 "Day66" -> "Day 66 · 多语言 fallback"
                 "Day67" -> "Day 67 · 业务语言边界"
+                "Day68" -> "Day 68 · 多语言测试"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -266,6 +269,7 @@ internal fun LayoutLearningScreen() {
                     , onDay65Click = { page = "Day65" }
                     , onDay66Click = { page = "Day66" }
                     , onDay67Click = { page = "Day67" }
+                    , onDay68Click = { page = "Day68" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -329,6 +333,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day65" -> item { AndroidResourcesDemo() }
                 page == "Day66" -> item { LocaleFallbackDemo() }
                 page == "Day67" -> item { BusinessLanguageDemo() }
+                page == "Day68" -> item { LocalizationTestDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -400,6 +405,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay65Click: () -> Unit
     , onDay66Click: () -> Unit
     , onDay67Click: () -> Unit
+    , onDay68Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -497,6 +503,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day66") { LearningCard("Day 66 · 多语言 fallback", "观察 values、繁体字形、地区目录与逐项回退。", onDay66Click) }
     // Day67 网页为本地模拟，不使用真实 Laya SDK。
     item(key = "home-day67") { LearningCard("Day 67 · 业务语言边界", "分离 App 界面、报告与模拟 Laya 文案的语言。", onDay67Click) }
+    // Day68 通过固定条件观察多语言布局与格式化。
+    item(key = "home-day68") { LearningCard("Day 68 · 多语言测试", "测试手机宽度、长文案、日期和数字格式。", onDay68Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
