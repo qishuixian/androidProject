@@ -1,0 +1,37 @@
+<resources>
+    <!-- resources 下按名称定义条目，XML 文件名不参与 R.string 字段命名。 -->
+    <string name="day65_title">Day65 · Android 资源</string>
+    <!-- 同一个标题供 XML 与 Compose 引用。 -->
+    <string name="day65_course_title">Android 资源课程</string>
+    <!-- 使用带位置的占位符，参数顺序明确。 -->
+    <string name="day65_progress">课程：%1$s；点击次数：%2$d</string>
+    <!-- Android 按当前语言选择数量类别；中文通常使用 other。 -->
+    <plurals name="day65_clicks">
+        <!-- 英语等语言可能使用 one；不能按中文单复数直觉判断。 -->
+        <item quantity="one">数量文案：点击了 %d 次</item>
+        <!-- 所有数量至少提供 other 作为兜底。 -->
+        <item quantity="other">数量文案：点击了 %d 次</item>
+    </plurals>
+    <!-- 当前 source set 的默认值，Flavor 会覆盖同名同配置资源。 -->
+    <string name="day65_source">app/main 默认值</string>
+    <!-- app 覆盖 course-core 的同名同配置资源。 -->
+    <string name="day65_shared_label">最终值来自 app，而不是 Library 默认值</string>
+    <!-- 展示环境，值来自 BuildConfig 而非资源目录猜测。 -->
+    <string name="day65_variant">当前 APK：%1$s / %2$s</string>
+    <!-- 展示 XML 的静态引用与 Compose 的运行期读取。 -->
+    <string name="day65_xml_label">下面标题由 XML 的 @string/day65_course_title 设置：</string>
+    <!-- 同一个资源也可从 Compose 使用。 -->
+    <string name="day65_compose_label">Compose 读取同一资源：%1$s</string>
+    <!-- 点击按钮只更新数量状态。 -->
+    <string name="day65_add">增加次数并显示资源 Toast</string>
+    <!-- Toast 在点击发生时从当前 Context 查询资源。 -->
+    <string name="day65_toast">点击事件读取资源：第 %1$d 次</string>
+    <!-- 重置不会改变构建变体。 -->
+    <string name="day65_reset">重置次数</string>
+    <!-- 数字资源 id 是构建产物，不能持久化当业务 id。 -->
+    <string name="day65_identity">资源名称：%1$s；本 APK 的 id：%2$s</string>
+    <!-- source set 选择发生在构建期。 -->
+    <string name="day65_source_label">Flavor 合并结果：%1$s</string>
+    <!-- 当前配置影响运行期匹配，这里不实现应用内语言切换。 -->
+    <string name="day65_note">先构建合并资源，再按设备配置查找。切换次数不会切换 Flavor；语言匹配和回退在 Day66 继续。</string>
+</resources>

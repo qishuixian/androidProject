@@ -1,0 +1,4 @@
+<resources>
+    <!-- prod Flavor 覆盖 app/main 中同名同配置资源。 -->
+    <string name="day65_source">app/prod：prodDebug 的 Flavor 资源</string>
+</resources>

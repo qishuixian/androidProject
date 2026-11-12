@@ -100,6 +100,8 @@ import com.example.myapplication.day62.KeyboardImeDemo
 import com.example.myapplication.day63.InputTraceDemo
 // Day64 打开双输入系统交接实验。
 import com.example.myapplication.day64.DualInputDemo
+// Day65 对照各层资源读取与合并。
+import com.example.myapplication.day65.AndroidResourcesDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -181,6 +183,7 @@ internal fun LayoutLearningScreen() {
                 "Day62" -> "Day 62 · 键盘与 IME"
                 "Day63" -> "Day 63 · 复杂输入调试"
                 "Day64" -> "Day 64 · Native 与 Laya 输入"
+                "Day65" -> "Day 65 · Android 资源"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -254,6 +257,7 @@ internal fun LayoutLearningScreen() {
                     , onDay62Click = { page = "Day62" }
                     , onDay63Click = { page = "Day63" }
                     , onDay64Click = { page = "Day64" }
+                    , onDay65Click = { page = "Day65" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -314,6 +318,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day62" -> item { KeyboardImeDemo() }
                 page == "Day63" -> item { InputTraceDemo() }
                 page == "Day64" -> item { DualInputDemo() }
+                page == "Day65" -> item { AndroidResourcesDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -382,6 +387,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay62Click: () -> Unit
     , onDay63Click: () -> Unit
     , onDay64Click: () -> Unit
+    , onDay65Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -473,6 +479,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day63") { LearningCard("Day 63 · 复杂输入调试", "观察 InputConnection、ACTION_DOWN 和焦点链路。", onDay63Click) }
     // Day64 网页仅模拟 Laya 输入侧，不加载真实引擎。
     item(key = "home-day64") { LearningCard("Day 64 · Native 与 Laya 输入", "实验两套输入控件的焦点交接与旧请求过滤。", onDay64Click) }
+    // Day65 比较 XML、Compose、点击事件和库资源。
+    item(key = "home-day65") { LearningCard("Day 65 · Android 资源", "学习 strings.xml、@string、格式化与资源合并。", onDay65Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {

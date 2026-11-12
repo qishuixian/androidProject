@@ -270,3 +270,5 @@ Day62：[键盘与 IME](docs/DAY62_KEYBOARD_IME.md)。键盘请求、IME 提交�
 Day63：[复杂输入调试](docs/DAY63_INPUT_CONNECTION_DEBUG.md)。真实 InputConnection、按键与焦点链路观察。
 
 Day64：[Native 与 Laya 输入](docs/DAY64_NATIVE_LAYA_INPUT.md)。真实 Native/本地网页输入，模拟引擎侧焦点交接与迟到请求。
+
+Day65：[Android 资源](docs/DAY65_ANDROID_RESOURCES.md)。XML、R.string、Compose、参数文案、数量文案与资源合并。

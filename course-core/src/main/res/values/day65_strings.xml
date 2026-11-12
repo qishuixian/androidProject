@@ -1,0 +1,6 @@
+<resources>
+    <!-- Library 独有资源通过库自己的 R 暴露。 -->
+    <string name="day65_library_only">这是 course-core 独有的字符串资源</string>
+    <!-- app 定义同名同配置资源后，此默认值会被覆盖。 -->
+    <string name="day65_shared_label">course-core 的默认文案（最终被 app 覆盖）</string>
+</resources>
