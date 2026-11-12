@@ -181,7 +181,7 @@ Debug APK 默认位于 `app/build/outputs/apk/debug/app-debug.apk`。若 `adb` �
 2. [Day9～Day30：Compose 性能、架构、网络、Room、并发、分页、测试与发布](docs/DAY9_TO_DAY79_ROADMAP.md)
 3. [Day31～Day40：View、Fragment、多模块与 Gradle](docs/DAY31_TO_DAY55_LEARNING_PLAN.md)
 4. [Day41～Day55：WebView、Bridge、网络、WebSocket、聊天与调试](docs/DAY31_TO_DAY55_LEARNING_PLAN.md)
-5. Day56～Day69：音视频、输入法、资源、多语言和运行时权限（见下方专题链接）
+5. Day56～Day79：音视频、输入法、资源、多语言和运行时权限（见下方专题链接）
 
 Day33：[Fragment 通信与返回栈](docs/DAY33_FRAGMENT_COMMUNICATION_BACK_STACK.md)。
 
@@ -257,6 +257,8 @@ Day68：[多语言测试](docs/DAY68_LOCALIZATION_TESTS.md)。手机布局、文
 
 Day69：[运行时权限](docs/DAY69_RUNTIME_PERMISSIONS.md)。按需申请、拒绝反馈、设置返回检查与 SAF 文档授权。
 
+Day70：[通知与推送](docs/DAY70_NOTIFICATIONS_PUSH.md)。真实本地通知、渠道、授权和点击跳转；远程推送流程模拟。
+
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。
@@ -299,5 +301,3 @@ Day69：[运行时权限](docs/DAY69_RUNTIME_PERMISSIONS.md)。按需申请、�
 截至首次功能交付：六份 XML 已通过解析检查，但构建验证未完成（联网构建等待依赖读取，离线构建缺少 `foundation.aar` 缓存），尚未完成真机页面验证。以上命令是验证方法，不代表测试已通过。
 
 遇到依赖下载失败时，先检查仓库网络访问和 Gradle Sync 错误；缓存未完整下载前，切换离线模式无法解决缺失依赖。
-
-

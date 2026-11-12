@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Day70：Android13+ 还需由用户运行时授予通知权限。 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- Day57：声明权限不等于用户已授权，仍需运行时请求。 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -19,6 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <!-- Day70 通知点击显式打开内部详情页。 -->
+        <activity android:name=".day70.NotificationLessonActivity" android:exported="false" />
         <!-- Day64 独立承载原生与本地网页输入实验，仅应用内部访问。 -->
         <activity android:name=".day64.DualInputActivity" android:exported="false" android:windowSoftInputMode="adjustResize" />
         <activity android:name=".day33.FragmentNavigationActivity" android:exported="false" />

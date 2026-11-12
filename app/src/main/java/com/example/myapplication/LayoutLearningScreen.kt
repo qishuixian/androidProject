@@ -110,6 +110,8 @@ import com.example.myapplication.day67.BusinessLanguageDemo
 import com.example.myapplication.day68.LocalizationTestDemo
 // Day69 练习按需授权、拒绝反馈与文档 URI。
 import com.example.myapplication.day69.RuntimePermissionDemo
+// Day70 发送真实本地通知并观察点击跳转。
+import com.example.myapplication.day70.NotificationDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -196,6 +198,7 @@ internal fun LayoutLearningScreen() {
                 "Day67" -> "Day 67 · 业务语言边界"
                 "Day68" -> "Day 68 · 多语言测试"
                 "Day69" -> "Day 69 · 运行时权限"
+                "Day70" -> "Day 70 · 通知与推送"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -274,6 +277,7 @@ internal fun LayoutLearningScreen() {
                     , onDay67Click = { page = "Day67" }
                     , onDay68Click = { page = "Day68" }
                     , onDay69Click = { page = "Day69" }
+                    , onDay70Click = { page = "Day70" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -339,6 +343,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day67" -> item { BusinessLanguageDemo() }
                 page == "Day68" -> item { LocalizationTestDemo() }
                 page == "Day69" -> item { RuntimePermissionDemo() }
+                page == "Day70" -> item { NotificationDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -412,6 +417,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay67Click: () -> Unit
     , onDay68Click: () -> Unit
     , onDay69Click: () -> Unit
+    , onDay70Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -513,6 +519,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day68") { LearningCard("Day 68 · 多语言测试", "测试手机宽度、长文案、日期和数字格式。", onDay68Click) }
     // Day69 不采集真实音视频，不读取文档正文。
     item(key = "home-day69") { LearningCard("Day 69 · 运行时权限", "练习相机、麦克风、拒绝处理和存储 URI 授权。", onDay69Click) }
+    // Day70 推送初始化仅模拟，本地通知为真实系统调用。
+    item(key = "home-day70") { LearningCard("Day 70 · 通知与推送", "练习通知渠道、授权、本地发布与点击详情。", onDay70Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
