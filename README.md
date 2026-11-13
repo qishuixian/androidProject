@@ -261,6 +261,23 @@ Day70：[通知与推送](docs/DAY70_NOTIFICATIONS_PUSH.md)。真实本地通知
 
 Day71：[前台 Service](docs/DAY71_FOREGROUND_SERVICE.md)。真实30秒短服务、通知绑定、生命周期与后台限制。
 
+Day72：[屏幕录制](docs/DAY72_MEDIA_PROJECTION.md)。MediaProjection 授权、前台 Service、VirtualDisplay 与资源释放。
+
+Day73：[权限兼容性](docs/DAY73_PERMISSION_COMPATIBILITY.md)。Android 版本差异、拒绝历史、rationale 与设置页重查。
+
+Day74：[Application 启动链](docs/DAY74_APPLICATION_STARTUP.md)。Application、Splash、登录态和主页面流程。
+
+Day75：[热修复与资源](docs/DAY75_HOTFIX_RESOURCE_VALIDATION.md)。初始化时机、版本、变体与完整 APK 验证。
+
+Day76：[渠道包](docs/DAY76_CHANNEL_ARTIFACTS.md)。Flavor、渠道参数、Walle 概念与 APK 产物检查。
+
+Day77：[Release 签名](docs/DAY77_RELEASE_SIGNING.md)。keystore、APK/AAB、版本比较与升级验证。
+
+Day78：[崩溃与日志](docs/DAY78_CRASH_LOGGING.md)。Logcat、Java/Native 崩溃、ANR、现场信息与日志脱敏。
+
+Day79：[综合发布](docs/DAY79_RELEASE_CHECKLIST.md)。自动检查、真机回归、发布记录、监控与回滚。
+
+
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。
@@ -306,18 +323,3 @@ Day71：[前台 Service](docs/DAY71_FOREGROUND_SERVICE.md)。真实30秒短服�
 
 
 
-Day72：[屏幕录制](docs/DAY72_MEDIA_PROJECTION.md)。MediaProjection 授权、前台 Service、VirtualDisplay 与资源释放。
-
-Day73：[权限兼容性](docs/DAY73_PERMISSION_COMPATIBILITY.md)。Android 版本差异、拒绝历史、rationale 与设置页重查。
-
-Day74：[Application 启动链](docs/DAY74_APPLICATION_STARTUP.md)。Application、Splash、登录态和主页面流程。
-
-Day75：[热修复与资源](docs/DAY75_HOTFIX_RESOURCE_VALIDATION.md)。初始化时机、版本、变体与完整 APK 验证。
-
-Day76：[渠道包](docs/DAY76_CHANNEL_ARTIFACTS.md)。Flavor、渠道参数、Walle 概念与 APK 产物检查。
-
-Day77：[Release 签名](docs/DAY77_RELEASE_SIGNING.md)。keystore、APK/AAB、版本比较与升级验证。
-
-Day78：[崩溃与日志](docs/DAY78_CRASH_LOGGING.md)。Logcat、Java/Native 崩溃、ANR、现场信息与日志脱敏。
-
-Day79：[综合发布](docs/DAY79_RELEASE_CHECKLIST.md)。自动检查、真机回归、发布记录、监控与回滚。
