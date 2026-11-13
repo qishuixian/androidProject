@@ -128,6 +128,8 @@ import com.example.myapplication.day76.ChannelArtifactDemo
 import com.example.myapplication.day77.ReleaseSigningDemo
 // Day78 练习崩溃日志、现场信息和脱敏。
 import com.example.myapplication.day78.CrashLogDemo
+// Day79 综合自动检查、真机回归、发布记录与回滚。
+import com.example.myapplication.day79.ReleaseChecklistDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -223,6 +225,7 @@ internal fun LayoutLearningScreen() {
                 "Day76" -> "Day 76 · 渠道包"
                 "Day77" -> "Day 77 · Release 签名"
                 "Day78" -> "Day 78 · 崩溃与日志"
+                "Day79" -> "Day 79 · 综合发布"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -310,6 +313,7 @@ internal fun LayoutLearningScreen() {
                     , onDay76Click = { page = "Day76" }
                     , onDay77Click = { page = "Day77" }
                     , onDay78Click = { page = "Day78" }
+                    , onDay79Click = { page = "Day79" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -384,6 +388,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day76" -> item { ChannelArtifactDemo() }
                 page == "Day77" -> item { ReleaseSigningDemo() }
                 page == "Day78" -> item { CrashLogDemo() }
+                page == "Day79" -> item { ReleaseChecklistDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -466,6 +471,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay76Click: () -> Unit
     , onDay77Click: () -> Unit
     , onDay78Click: () -> Unit
+    , onDay79Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -585,6 +591,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day77") { LearningCard("Day 77 · Release 签名", "学习 keystore、APK/AAB、版本和升级。", onDay77Click) }
     // Day78 只写入脱敏练习日志，不主动制造崩溃。
     item(key = "home-day78") { LearningCard("Day 78 · 崩溃与日志", "学习 Logcat、堆栈、ANR、Native 崩溃和日志脱敏。", onDay78Click) }
+    // Day79 只模拟发布清单，不执行真实发布。
+    item(key = "home-day79") { LearningCard("Day 79 · 综合发布", "串联自动检查、真机回归、发布记录和回滚。", onDay79Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
