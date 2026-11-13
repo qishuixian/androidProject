@@ -124,6 +124,8 @@ import com.example.myapplication.day74.StartupChainDemo
 import com.example.myapplication.day75.HotfixResourceDemo
 // Day76 对照 Flavor、渠道参数与 APK 产物。
 import com.example.myapplication.day76.ChannelArtifactDemo
+// Day77 讲解 Release 签名、版本和升级。
+import com.example.myapplication.day77.ReleaseSigningDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -217,6 +219,7 @@ internal fun LayoutLearningScreen() {
                 "Day74" -> "Day 74 · Application 启动链"
                 "Day75" -> "Day 75 · 热修复与资源"
                 "Day76" -> "Day 76 · 渠道包"
+                "Day77" -> "Day 77 · Release 签名"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -302,6 +305,7 @@ internal fun LayoutLearningScreen() {
                     , onDay74Click = { page = "Day74" }
                     , onDay75Click = { page = "Day75" }
                     , onDay76Click = { page = "Day76" }
+                    , onDay77Click = { page = "Day77" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -374,6 +378,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day74" -> item { StartupChainDemo() }
                 page == "Day75" -> item { HotfixResourceDemo() }
                 page == "Day76" -> item { ChannelArtifactDemo() }
+                page == "Day77" -> item { ReleaseSigningDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -454,6 +459,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay74Click: () -> Unit
     , onDay75Click: () -> Unit
     , onDay76Click: () -> Unit
+    , onDay77Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -569,6 +575,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day75") { LearningCard("Day 75 · 热修复与资源", "理解初始化时机、版本和完整 APK 验证。", onDay75Click) }
     // Day76 不接入真实 Walle，只展示渠道验证方法。
     item(key = "home-day76") { LearningCard("Day 76 · 渠道包", "区分 Flavor、渠道参数、Walle 和 APK 产物。", onDay76Click) }
+    // Day77 不写入 keystore，仅展示发布验证。
+    item(key = "home-day77") { LearningCard("Day 77 · Release 签名", "学习 keystore、APK/AAB、版本和升级。", onDay77Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
