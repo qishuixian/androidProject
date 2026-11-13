@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- Day71 前台服务基础权限；shortService没有额外的类型专属权限。 -->
+    <!-- Day71/72 前台服务基础权限。 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <!-- Day70：Android13+ 还需由用户运行时授予通知权限。 -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -23,6 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <!-- Day72：MediaProjection 类型需要与运行时提升类型一致。 -->
+        <service android:name=".day72.ProjectionService" android:exported="false" android:foregroundServiceType="mediaProjection" />
         <!-- Day71：限时短服务，不声明录屏/麦克风等未使用类型。 -->
         <service android:name=".day71.LessonForegroundService" android:exported="false" android:foregroundServiceType="shortService" />
         <!-- Day70 通知点击显式打开内部详情页。 -->

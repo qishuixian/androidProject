@@ -259,6 +259,8 @@ Day69：[运行时权限](docs/DAY69_RUNTIME_PERMISSIONS.md)。按需申请、�
 
 Day70：[通知与推送](docs/DAY70_NOTIFICATIONS_PUSH.md)。真实本地通知、渠道、授权和点击跳转；远程推送流程模拟。
 
+Day71：[前台 Service](docs/DAY71_FOREGROUND_SERVICE.md)。真实30秒短服务、通知绑定、生命周期与后台限制。
+
 状态流专项：[MutableStateFlow 详细学习](docs/MUTABLE_STATE_FLOW_DETAILED.md)。
 
 - [MainActivity.kt](app/src/main/java/com/example/myapplication/MainActivity.kt)：应用入口、Compose 页面、点击导航和返回处理。
@@ -302,4 +304,6 @@ Day70：[通知与推送](docs/DAY70_NOTIFICATIONS_PUSH.md)。真实本地通知
 
 遇到依赖下载失败时，先检查仓库网络访问和 Gradle Sync 错误；缓存未完整下载前，切换离线模式无法解决缺失依赖。
 
-Day71：[前台 Service](docs/DAY71_FOREGROUND_SERVICE.md)。真实30秒短服务、通知绑定、生命周期与后台限制。
+
+
+Day72：[屏幕录制](docs/DAY72_MEDIA_PROJECTION.md)。MediaProjection 授权、前台 Service、VirtualDisplay 与资源释放。

@@ -114,6 +114,8 @@ import com.example.myapplication.day69.RuntimePermissionDemo
 import com.example.myapplication.day70.NotificationDemo
 // Day71 真实启动限时前台服务。
 import com.example.myapplication.day71.ForegroundServiceDemo
+// Day72 申请 MediaProjection 并演示资源释放。
+import com.example.myapplication.day72.MediaProjectionDemo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -202,6 +204,7 @@ internal fun LayoutLearningScreen() {
                 "Day69" -> "Day 69 · 运行时权限"
                 "Day70" -> "Day 70 · 通知与推送"
                 "Day71" -> "Day 71 · 前台 Service"
+                "Day72" -> "Day 72 · 屏幕录制"
                 else -> "布局"
             }) },
             navigationIcon = { if (page != "home") TextButton(onClick = back) { Text("返回") } }
@@ -282,6 +285,7 @@ internal fun LayoutLearningScreen() {
                     , onDay69Click = { page = "Day69" }
                     , onDay70Click = { page = "Day70" }
                     , onDay71Click = { page = "Day71" }
+                    , onDay72Click = { page = "Day72" }
                 )
                 page == "ViewModel" -> item { ViewModelDemo() }
                 page == "Day7" -> item { AsyncLessonDemo() }
@@ -349,6 +353,7 @@ internal fun LayoutLearningScreen() {
                 page == "Day69" -> item { RuntimePermissionDemo() }
                 page == "Day70" -> item { NotificationDemo() }
                 page == "Day71" -> item { ForegroundServiceDemo() }
+                page == "Day72" -> item { MediaProjectionDemo() }
                 lesson == null -> layoutListItems { page = it }
                 else -> lessonItems(lesson)
             }
@@ -424,6 +429,7 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     , onDay69Click: () -> Unit
     , onDay70Click: () -> Unit
     , onDay71Click: () -> Unit
+    , onDay72Click: () -> Unit
 ) {
     item(key = "home-title") { Text("从一个页面开始学习 Android", style = MaterialTheme.typography.headlineSmall) }
     item(key = "home-description") { Text("选择学习主题，查看概念、实际布局效果和 XML 写法。") }
@@ -529,6 +535,8 @@ private fun androidx.compose.foundation.lazy.LazyListScope.homeItems(
     item(key = "home-day70") { LearningCard("Day 70 · 通知与推送", "练习通知渠道、授权、本地发布与点击详情。", onDay70Click) }
     // Day71 服务自行限时，不随页面组合运行。
     item(key = "home-day71") { LearningCard("Day 71 · 前台 Service", "观察启动、通知绑定、后台限制与停止清理。", onDay71Click) }
+    // Day72 不保存录像，只观察授权和资源释放顺序。
+    item(key = "home-day72") { LearningCard("Day 72 · 屏幕录制", "学习 MediaProjection 授权、Service 与 VirtualDisplay 释放。", onDay72Click) }
 }
 
 private fun androidx.compose.foundation.lazy.LazyListScope.layoutListItems(onLessonClick: (String) -> Unit) {
