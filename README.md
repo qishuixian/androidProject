@@ -307,3 +307,5 @@ Day71：[前台 Service](docs/DAY71_FOREGROUND_SERVICE.md)。真实30秒短服�
 
 
 Day72：[屏幕录制](docs/DAY72_MEDIA_PROJECTION.md)。MediaProjection 授权、前台 Service、VirtualDisplay 与资源释放。
+
+Day73：[权限兼容性](docs/DAY73_PERMISSION_COMPATIBILITY.md)。Android 版本差异、拒绝历史、rationale 与设置页重查。
