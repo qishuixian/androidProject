@@ -317,3 +317,5 @@ Day75：[热修复与资源](docs/DAY75_HOTFIX_RESOURCE_VALIDATION.md)。初始�
 Day76：[渠道包](docs/DAY76_CHANNEL_ARTIFACTS.md)。Flavor、渠道参数、Walle 概念与 APK 产物检查。
 
 Day77：[Release 签名](docs/DAY77_RELEASE_SIGNING.md)。keystore、APK/AAB、版本比较与升级验证。
+
+Day78：[崩溃与日志](docs/DAY78_CRASH_LOGGING.md)。Logcat、Java/Native 崩溃、ANR、现场信息与日志脱敏。
