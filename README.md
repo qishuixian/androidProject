@@ -311,3 +311,5 @@ Day72：[屏幕录制](docs/DAY72_MEDIA_PROJECTION.md)。MediaProjection 授权�
 Day73：[权限兼容性](docs/DAY73_PERMISSION_COMPATIBILITY.md)。Android 版本差异、拒绝历史、rationale 与设置页重查。
 
 Day74：[Application 启动链](docs/DAY74_APPLICATION_STARTUP.md)。Application、Splash、登录态和主页面流程。
+
+Day75：[热修复与资源](docs/DAY75_HOTFIX_RESOURCE_VALIDATION.md)。初始化时机、版本、变体与完整 APK 验证。
