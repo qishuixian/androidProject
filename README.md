@@ -313,3 +313,5 @@ Day73：[权限兼容性](docs/DAY73_PERMISSION_COMPATIBILITY.md)。Android 版�
 Day74：[Application 启动链](docs/DAY74_APPLICATION_STARTUP.md)。Application、Splash、登录态和主页面流程。
 
 Day75：[热修复与资源](docs/DAY75_HOTFIX_RESOURCE_VALIDATION.md)。初始化时机、版本、变体与完整 APK 验证。
+
+Day76：[渠道包](docs/DAY76_CHANNEL_ARTIFACTS.md)。Flavor、渠道参数、Walle 概念与 APK 产物检查。
