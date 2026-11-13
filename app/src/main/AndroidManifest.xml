@@ -15,6 +15,7 @@
     <uses-feature android:name="android.hardware.microphone" android:required="false" />
 
     <application
+        android:name=".day74.LearningApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -23,6 +24,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <!-- Day74 独立启动链实验页，仅本应用内部打开。 -->
+        <activity android:name=".day74.StartupChainActivity" android:exported="false" />
         <!-- Day72：MediaProjection 类型需要与运行时提升类型一致。 -->
         <service android:name=".day72.ProjectionService" android:exported="false" android:foregroundServiceType="mediaProjection" />
         <!-- Day71：限时短服务，不声明录屏/麦克风等未使用类型。 -->
